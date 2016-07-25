@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>使用Octopress搭建静态博客网站 | NateRobinson's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">使用Octopress搭建静态博客网站</h1><a id="logo" href="/.">NateRobinson's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">使用Octopress搭建静态博客网站</h1><div class="post-meta">Aug 27, 2015<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/08/27/使用Octopress搭建静态博客网站/" href="/2015/08/27/使用Octopress搭建静态博客网站/#comments" class="ds-thread-count"></a><div class="post-content"> <a id="more"></a>
+<h1 id="1-Octopress简介"><a href="#1-Octopress简介" class="headerlink" title="1.Octopress简介"></a>1.Octopress简介</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>Octopress是一个基于jekyll的静态的静态博客站点生成系统，很大程度的简化了jekyll搭建博客过程。</p>
+<h2 id="为什么用Octopress而不用wordpress"><a href="#为什么用Octopress而不用wordpress" class="headerlink" title="为什么用Octopress而不用wordpress"></a>为什么用Octopress而不用wordpress</h2><p>wordpress有太多的缺点：需要买主机，域名。它还是动态的，并且过度的依赖数据库，迁移成本高。</p>
+<h2 id="Octopress特点"><a href="#Octopress特点" class="headerlink" title="Octopress特点"></a>Octopress特点</h2><ul>
+<li>命令行操作</li>
+<li>纯文本写博客</li>
+<li>定制性高</li>
+<li>纯静态</li>
+<li>版本化管理</li>
+<li>迁移成本低</li>
+<li>简洁的Ruby框架</li>
+<li>Markdown语法</li>
+</ul>
+<h2 id="Octopress目录结构"><a href="#Octopress目录结构" class="headerlink" title="Octopress目录结构"></a>Octopress目录结构</h2><ul>
+<li>主题插件等文件夹</li>
+<li>source文件夹</li>
+<li>public文件夹</li>
+</ul>
+<h2 id="一般使用流程"><a href="#一般使用流程" class="headerlink" title="一般使用流程"></a>一般使用流程</h2><ul>
+<li>搭建环境</li>
+<li>纯文本写博客</li>
+<li>生成静态网页</li>
+<li>本地预览</li>
+<li>部署到github</li>
+</ul>
+<hr>
+<h1 id="2-Octopress环境搭建"><a href="#2-Octopress环境搭建" class="headerlink" title="2.Octopress环境搭建"></a>2.Octopress环境搭建</h1><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><ul>
+<li><p>Git安装：</p>
+<p>  版本管理工具，可以将我们生成的静态网页托管到GitHub上。</p>
+<ul>
+<li><p>设置全局</p>
+<p>  <code>git config --global user.name &quot;name&quot; 配置username</code><br>  <code>git config --global user.email &quot;邮箱&quot;  配置邮箱</code></p>
+</li>
+<li><p>设置ssh</p>
+<p>  <code>ssh -keygen -t rsa -C &quot;邮箱&quot;  设置rsa的数字指纹，一个是公钥，一个是私钥
+  公钥要提交到github上，私钥需要自己保存</code></p>
+</li>
+<li><p>验证ssh key</p>
+<p>  <code>ssh  -T git@github.com   会用本地的私钥和github的公钥进行匹配</code></p>
+</li>
+</ul>
+</li>
+<li><p>Ruby安装：</p>
+<p>  <a href="https://www.ruby-lang.org/en/" title="https://www.ruby-lang.org/en/" target="_blank" rel="external">https://www.ruby-lang.org/en/</a></p>
+</li>
+<li><p>DevKit安装</p>
+<p>  <a href="http://rubyinstaller.org/add-ons/devkit/" title="http://rubyinstaller.org/add-ons/devkit/" target="_blank" rel="external">http://rubyinstaller.org/add-ons/devkit/</a></p>
+<ul>
+<li><p>DevKit与Ruby两者的关联</p>
+<ul>
+<li>1.<code>ruby dk.rb init</code> 执行关联操作 会生成config.yml 配置文件；</li>
+<li>2.如果配置文件中自行找到并设置了本地的ruby安装目录，那么就直接进行下一步操作，否则需要看一下“遇到问题”的解决方法；</li>
+<li>3.执行 <code>ruby dk.rb install</code>    跳出下面提示，表示安装成功<br><code>[INFO] Updating convenience notice gem override for &#39;d:/Ruby21</code><br><code>[INFO] Installing &#39;d:/Ruby21-x64/lib/ruby/site_ruby/devkit.rb&#39;</code></li>
+</ul>
+</li>
+<li><p>可能遇到问题</p>
+<p>  没有发现我们安装的ruby目录的话，需要手动的到刚才生成的config.yml文件中进行添加：</p>
+<ul>
+<li>1.<code>vim  config.yml</code></li>
+<li>2.按下“i”键，执行insert操作；</li>
+<li>3.插入：- 本地ruby的目录</li>
+<li>4.按“:wq”保存并退出vim模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MarkdownPad安装</p>
+<p>  windows下的markdown语法编辑器</p>
+</li>
+<li><p>awesomium安装</p>
+<p>  实现markdown编辑与预览的效果</p>
+</li>
+<li><p>Pygments安装</p>
+<ul>
+<li><p>安装 Python</p>
+<ul>
+<li>1.前往 <a href="http://www.python.org/download/" title="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a></li>
+<li>2.下载合适的 Python windows 安装包，如 Python 2.7.6 Windows Installer。 请注意，Python 2 可能会更合适，因为暂时 Python 3 可能不会正常工作。</li>
+<li>3.安装</li>
+<li>4.添加安装路径 (如： C:\Python27) 至 PATH。(如何操作? 请参见 故障诊断 #1)</li>
+<li>5.检验 Python 安装是否成功<br>  <code>python –V</code><br>   输出示例：<br>  <code>Python 2.7.6</code></li>
+</ul>
+</li>
+<li><p>安装 ‘Easy Install’</p>
+<ul>
+<li>1.浏览<a href="https://pypi.python.org/pypi/setuptools#installation-instructions" title="https://pypi.python.org/pypi/setuptools#installation-instructions" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools#installation-instructions</a>来查看详细的安装指南。</li>
+<li>2.对于 Windows 7 的机器，下载 <a href="https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py" title="ez_setup.py" target="_blank" rel="external">ez_setup.py</a> 并保存，例如，至C:\。 然后从命令行使用 Python 运行此文件：<br>  <code>python “C:\ez_setup.py”</code></li>
+<li>3.添加 ‘Python Scripts’ 路径 (如： C:\Python27\Scripts) 至 PATH</li>
+</ul>
+</li>
+<li><p>安装 Pygments</p>
+<ul>
+<li>1.确保 easy_install 已经正确安装<br>  <code>easy_install --version</code><br>  输出示例：<br>  <code>setuptools 3.1</code></li>
+<li>2.使用 “easy_install” 来安装 Pygments:<br>  <code>easy_install Pygments</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置一个简单的Octopress主题"><a href="#配置一个简单的Octopress主题" class="headerlink" title="配置一个简单的Octopress主题"></a>配置一个简单的Octopress主题</h2><ul>
+<li><p>克隆Octopress到本地</p>
+<p>  <a href="https://github.com/imathis/octopress.git" title="https://github.com/imathis/octopress.git" target="_blank" rel="external">https://github.com/imathis/octopress.git</a></p>
+</li>
+<li><p>安装依赖库</p>
+<ul>
+<li><p>先配置一下安装源</p>
+<ul>
+<li><code>gem sources -a http://ruby.taobao.org</code>  在安装源地址中append一个淘宝的ruby地址</li>
+<li><code>gem sources -r http://rubygems.org</code>  将ruby自带的http的安装源remove掉    </li>
+<li>修改一下GenFile文件中的软件源为：<code>source &quot;http://ruby.taobao.org&quot;</code></li>
+</ul>
+</li>
+<li><p>安装依赖库</p>
+<ul>
+<li><code>gem install bundler</code> 安装bundler </li>
+<li><code>bundle install</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安装并使用默认主题</p>
+<ul>
+<li><code>rake intall</code> 生成一个source目录</li>
+<li><code>rake generate</code> 生成public文件</li>
+<li><code>rake preview</code> 打开一个服务，进行预览</li>
+</ul>
+</li>
+<li><p>preview安装好的主题</p>
+</li>
+</ul>
+<h2 id="可能遇到问题"><a href="#可能遇到问题" class="headerlink" title="可能遇到问题"></a>可能遇到问题</h2><ul>
+<li><p>静态网站加载很慢</p>
+<ul>
+<li>1.使用谷歌浏览器打开：<a href="http://localhost:4000" title="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></li>
+<li>2.F12打开控制面板，查看网络加载变慢原因</li>
+<li>3.会发现是两个js的引用加载失败，由于网络的原因</li>
+<li>4.解决方法，将jquery.min.js改为百度的”<script src="//libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>“，可以提高速度</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="3-生成博客与单页面"><a href="#3-生成博客与单页面" class="headerlink" title="3.生成博客与单页面"></a>3.生成博客与单页面</h1><h2 id="新建博客与单页面"><a href="#新建博客与单页面" class="headerlink" title="新建博客与单页面"></a>新建博客与单页面</h2><ul>
+<li><p>新建博客</p>
+<p>  <code>rake new_post[&quot;title&quot;]</code></p>
+</li>
+<li><p>新建单页面</p>
+<p>  单页面和博客是不一样的，单页面在博客首页是看不到的，单页面可以用来做一些例如 About Me的页面之类的</p>
+<ul>
+<li><p>方式一：<code>rake new_page[page1]</code></p>
+<p>  在creates/source/page1/index.markdown会自动生成一个page1的文件目录，并在里面生成一个index.markdown文件`</p>
+</li>
+<li><p>方式二：<code>rake new_page[page1/pagename.html]</code></p>
+<p>  creates/source/page1/pagename.html   会自动生成一个page1的文件目录，并且在里面生成pagename.html的网页文件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="编写博客的工具"><a href="#编写博客的工具" class="headerlink" title="编写博客的工具"></a>编写博客的工具</h2><ul>
+<li>markdownpad</li>
+<li>记事本</li>
+<li>vim命令</li>
+</ul>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p>代码高亮markdown书写之后，解析失败<br>这是由于缺少了 Pygments这个解析代码片段高亮的插件<br>解决方法：返回之前步骤安装Pygments</p>
+<hr>
+<h1 id="4-部署网站到GitHub"><a href="#4-部署网站到GitHub" class="headerlink" title="4.部署网站到GitHub"></a>4.部署网站到GitHub</h1><h2 id="部署博客到GitHub"><a href="#部署博客到GitHub" class="headerlink" title="部署博客到GitHub"></a>部署博客到GitHub</h2><ul>
+<li><p>新建一个名为username.github.io格式的仓库</p>
+<p>  必须要验证邮件才能使用github.io</p>
+</li>
+<li><p>与本地的Octopress目录绑定</p>
+<ul>
+<li><p><code>rake setup_github_pages</code></p>
+</li>
+<li><p>为了保证部署的网站是最新的，先执行下面的命令生成最新的网站<code>rake generate</code></p>
+</li>
+<li><p><code>rake deploy</code>  会将最新的public目录中的静态网站生成到deploy文件夹中，并push到github</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="托管源码到Github"><a href="#托管源码到Github" class="headerlink" title="托管源码到Github"></a>托管源码到Github</h2><ul>
+<li><p>将source目录更新到远程仓库</p>
+<blockquote>
+<p>git add .</p>
+<p>git commit -m “message”</p>
+<p>git push origin source</p>
+<p>创建一个源码的分支，这样就可以在任何电脑使用了</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="可能遇到问题-1"><a href="#可能遇到问题-1" class="headerlink" title="可能遇到问题"></a>可能遇到问题</h2><ul>
+<li>当换了一台电脑之后，<ul>
+<li>1.先clone source库： <code>git clone -b source xxxxxxxxx</code>;</li>
+<li>2.然后执行”Octopress环境搭建“==》”配置一个简单的Octopress主题“==》”安装依赖库“</li>
+<li>3.安装并使用默认主题 ：<ul>
+<li><code>rake intall</code>  生成一个source目录</li>
+<li><code>rake generate</code> 生成public</li>
+</ul>
+</li>
+<li>4.”部署网站到GitHub“==》”部署博客到GitHub“=》执行 <code>rake setup_github_pages</code> 绑定起来</li>
+<li><ol>
+<li>进入到刚生产的_deploy目录，执行<code>git pull origin master</code>  更新github上的之前绑定的网站到此目录【不然会导致deploy失败】</li>
+</ol>
+</li>
+<li>6.下面就可以和之前在第一台电脑上进行的操作一样了，添加博客，genrate ，deploy。。。。。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="5-博客自定义与配置"><a href="#5-博客自定义与配置" class="headerlink" title="5.博客自定义与配置"></a>5.博客自定义与配置</h1><h2 id="完善主配置文件：-config-yml"><a href="#完善主配置文件：-config-yml" class="headerlink" title="完善主配置文件：_config.yml"></a>完善主配置文件：_config.yml</h2><p>可以设置url，title，author等信息</p>
+<h2 id="使用第三方插件"><a href="#使用第三方插件" class="headerlink" title="使用第三方插件"></a>使用第三方插件</h2><ul>
+<li><p>评论功能</p>
+<ul>
+<li>注册一个说说账户并新建一个后台<br><a href="http://dev.duoshuo.com/" title="http://dev.duoshuo.com/" target="_blank" rel="external">http://dev.duoshuo.com/</a></li>
+<li>在_config.yml中新建一个多说的评论开关<blockquote>
+<p>duoshuo_comment: true</p>
+</blockquote>
+</li>
+<li><p>修改source_layouts目录中post.html模板<br>  在里面修改掉之前默认的评论插件，那个在中国不适合</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if site.duoshuo_comment == true %&#125;</span><br><span class="line">		<span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Comments<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"disqus_thread"</span> <span class="attr">aria-live</span>=<span class="string">"polite"</span>&gt;</span>&#123;% include post/duoshuo_comment.html %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在source_includes\post目录下新建一个多说的评论模板</p>
+<p>  代码来之多说网站，进行一些全局变量的修改之后，代码如下：</p>
+  <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds-thread"</span> <span class="attr">data-thread-key</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; page.id &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">data-title</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; page.title &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">data-url</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; site.url &#125;&#125;</span><span class="xml"><span class="tag"><span class="string"></span></span></span><span class="template-variable">&#123;&#123; page.url &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">"your duoshuo name"</span>&#125;;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">	ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">	ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">	ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">	(<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] </span><br><span class="line"> 	|| <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">&#125;)();</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="社会化分享功能"><a href="#社会化分享功能" class="headerlink" title="社会化分享功能"></a>社会化分享功能</h2><ul>
+<li><p>打开 JiaThis网站获取分享代码</p>
+<p>  <a href="http://www.jiathis.com/" title="http://www.jiathis.com/" target="_blank" rel="external">http://www.jiathis.com/</a></p>
+</li>
+<li><p>在_config.yml中新建一个jiashare的分享开关</p>
+<blockquote>
+<p>jia_share: true</p>
+</blockquote>
+</li>
+<li><p>修改source_includes\post目录下的sharing.html</p>
+  <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">添加下面代码 ：</span><br><span class="line"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> site.jia_share %&#125;</span><span class="xml"></span><br><span class="line">  	</span><span class="template-tag">&#123;% <span class="name"><span class="name">include</span></span> post/jia_share.html %&#125;</span><span class="xml"></span><br><span class="line">	</span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在source_includes\post目录 下添加jia_share.html</p>
+<p>  代码就是从jiathis网站拷贝的代码</p>
+</li>
+</ul>
+<h2 id="自定义404界面"><a href="#自定义404界面" class="headerlink" title="自定义404界面"></a>自定义404界面</h2><ul>
+<li><p>创建一个404.markdown文件 设置一下其基本属性如下：</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">layout:</span> page</span><br><span class="line"><span class="attr">title:</span> <span class="string">"404 Not Found"</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2015</span><span class="bullet">-08</span><span class="bullet">-23</span> <span class="number">08</span>:<span class="number">38</span>:<span class="number">49</span> +<span class="number">0800</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入腾讯公益的404页面：</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="自定义导航"><a href="#自定义导航" class="headerlink" title="自定义导航"></a>自定义导航</h2><p>添加一个aboutme的导航</p>
+<ul>
+<li><p>先执行<code>rake new_page[aboutme]</code></p>
+</li>
+<li><p>再在\source_includes\custom目录下的navigation.html中添加一个导航:</p>
+<p>  <code>&lt;li&gt;&lt;a href=&quot;/aboutme&quot;&gt;AboutMe&lt;/a&gt;&lt;/li&gt;</code></p>
+</li>
+</ul>
+<hr>
+<h1 id="6-安装使用主题"><a href="#6-安装使用主题" class="headerlink" title="6.安装使用主题"></a>6.安装使用主题</h1><h2 id="到Github寻找主题"><a href="#到Github寻找主题" class="headerlink" title="到Github寻找主题"></a>到Github寻找主题</h2><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><blockquote>
+<p>rake install[‘themename’]</p>
+</blockquote>
+<h2 id="重新生成"><a href="#重新生成" class="headerlink" title="重新生成"></a>重新生成</h2><blockquote>
+<p>rake generate</p>
+</blockquote>
+<h2 id="注意点：安装主题一定要做好备份操作"><a href="#注意点：安装主题一定要做好备份操作" class="headerlink" title="注意点：安装主题一定要做好备份操作"></a>注意点：安装主题一定要做好备份操作</h2><p>安装主题会导致之前修改的模板之类的全部被覆盖消失<br>所以必须做好备份操作 </p>
+<hr>
+<h1 id="7-自定义网站域名"><a href="#7-自定义网站域名" class="headerlink" title="7.自定义网站域名"></a>7.自定义网站域名</h1><h2 id="在github上绑定自定义域名"><a href="#在github上绑定自定义域名" class="headerlink" title="在github上绑定自定义域名"></a>在github上绑定自定义域名</h2><ul>
+<li><p>创建source/CNAME文件并指定域名:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'xxxx.com'</span>  &gt;&gt; <span class="built_in">source</span>/CNAME</span><br><span class="line">OR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'www.xxxx.com'</span>  &gt;&gt; <span class="built_in">source</span>/CNAME</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="解析域名至github"><a href="#解析域名至github" class="headerlink" title="解析域名至github"></a>解析域名至github</h2><ul>
+<li><p>使用的是子域名</p>
+<p>  创建一个CNAME 指向 username.github.io</p>
+</li>
+<li><p>使用的是顶级域名</p>
+<p>  使用A记录，指向192.30.252.153（154）【github.io的地址】</p>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://guxuewu.com/2015/08/27/使用Octopress搭建静态博客网站/" data-id="cir23habe0006csn9uqkaglj2" class="article-share-link">分享到</a><div class="tags"><a href="/tags/搭建网站/">搭建网站</a></div><div class="post-nav"><a href="/2016/01/25/一个基于MVP模式的应用基础框架/" class="pre">一个基于MVP模式的应用基础框架</a><a href="/2015/08/26/AndroidUniversalImageLoader使用详解/" class="next">AndroidUniversalImageLoader使用详解</a></div><div data-thread-key="2015/08/27/使用Octopress搭建静态博客网站/" data-title="使用Octopress搭建静态博客网站" data-url="http://guxuewu.com/2015/08/27/使用Octopress搭建静态博客网站/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/08/27/使用Octopress搭建静态博客网站/" data-title="使用Octopress搭建静态博客网站" data-url="http://guxuewu.com/2015/08/27/使用Octopress搭建静态博客网站/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://guxuewu.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/图片加载/" style="font-size: 15px;">图片加载</a> <a href="/tags/搭建网站/" style="font-size: 15px;">搭建网站</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/卡片翻页效果的Viewpager-CardStackViewpager/">卡片翻页效果的Viewpager-CardStackViewpager</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/模仿58到家百度地图地址选择效果/">模仿58到家百度地图地址选择效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/基于Bmob开源APP-兄弟连/">基于Bmob开源APP-兄弟连</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/25/一个基于MVP模式的应用基础框架/">一个基于MVP模式的应用基础框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/27/使用Octopress搭建静态博客网站/">使用Octopress搭建静态博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/26/AndroidUniversalImageLoader使用详解/">AndroidUniversalImageLoader使用详解</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">NateRobinson's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'naterobinson'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

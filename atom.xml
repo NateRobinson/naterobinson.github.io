@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://guxuewu.com/"/>
-  <updated>2016-04-20T08:31:08.566Z</updated>
+  <updated>2016-07-25T13:53:57.584Z</updated>
   <id>http://guxuewu.com/</id>
   
   <author>
@@ -16,50 +16,687 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>My New Post</title>
-    <link href="http://guxuewu.com/2016/04/20/My-New-Post/"/>
-    <id>http://guxuewu.com/2016/04/20/My-New-Post/</id>
-    <published>2016-04-20T06:08:24.000Z</published>
-    <updated>2016-04-20T08:31:08.566Z</updated>
+    <title>卡片翻页效果的Viewpager-CardStackViewpager</title>
+    <link href="http://guxuewu.com/2016/07/25/%E5%8D%A1%E7%89%87%E7%BF%BB%E9%A1%B5%E6%95%88%E6%9E%9C%E7%9A%84Viewpager-CardStackViewpager/"/>
+    <id>http://guxuewu.com/2016/07/25/卡片翻页效果的Viewpager-CardStackViewpager/</id>
+    <published>2016-07-25T13:46:22.000Z</published>
+    <updated>2016-07-25T13:53:57.584Z</updated>
     
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Test1" scheme="http://guxuewu.com/tags/Test1/"/>
-    
-      <category term="Test2" scheme="http://guxuewu.com/tags/Test2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://guxuewu.com/2016/04/05/hello-world/"/>
-    <id>http://guxuewu.com/2016/04/05/hello-world/</id>
-    <published>2016-04-05T06:16:00.000Z</published>
-    <updated>2016-05-19T03:16:40.632Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;通过继承&lt;code&gt;Viewpager&lt;/code&gt;的&lt;code&gt;PageTransformer&lt;/code&gt;类，重写里面的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法，可以实现各种各样的Viewpager变化效果。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个&lt;code&gt;CardStackViewpager&lt;/code&gt;的灵感来自Github上面的    &lt;a href=&quot;https://github.com/blipinsk/FlippableStackView&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;FlippableStackView&lt;/code&gt;&lt;/a&gt;开源项目，而我想实现的效果方向上恰好与&lt;code&gt;FlippableStackView&lt;/code&gt;相反，并且细节上也有些区别，详见下面的效果对比图：&lt;/p&gt;
+&lt;h6 id=&quot;FlippableStackView运行效果图：&quot;&gt;&lt;a href=&quot;#FlippableStackView运行效果图：&quot; class=&quot;headerlink&quot; title=&quot;FlippableStackView运行效果图：&quot;&gt;&lt;/a&gt;FlippableStackView运行效果图：&lt;/h6&gt;&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/two.gif?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;h6 id=&quot;CardStackViewpager运行效果图：&quot;&gt;&lt;a href=&quot;#CardStackViewpager运行效果图：&quot; class=&quot;headerlink&quot; title=&quot;CardStackViewpager运行效果图：&quot;&gt;&lt;/a&gt;CardStackViewpager运行效果图：&lt;/h6&gt;&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/one.gif?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里讲一个小插曲，自己尝试实现&lt;code&gt;CardStackViewpager&lt;/code&gt;的过程中，由于一开始对&lt;code&gt;PageTransformer&lt;/code&gt;的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;实在很困惑，于是我用自己小学般的英语写了一封邮件给&lt;code&gt;FlippableStackView&lt;/code&gt;的开发者，尴尬的是，至今他没回我邮件。&lt;/p&gt;
+&lt;p&gt;回归正题，下面我就来具体讲一下&lt;code&gt;CardStackViewpager&lt;/code&gt;的实现思路，其实整个核心就在下面这一段代码，把下面这段代码搞懂了，就可以通过自定义自己的&lt;code&gt;PageTransformer&lt;/code&gt;实现各种各样想要的Viewpager效果了。&lt;/p&gt;
+&lt;h4 id=&quot;核心的VerticalStackTransformer的onTransform方法最终版&quot;&gt;&lt;a href=&quot;#核心的VerticalStackTransformer的onTransform方法最终版&quot; class=&quot;headerlink&quot; title=&quot;核心的VerticalStackTransformer的onTransform方法最终版&quot;&gt;&lt;/a&gt;核心的VerticalStackTransformer的onTransform方法最终版&lt;/h4&gt;&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; (position &amp;lt;= &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position &amp;lt;= 0.0f ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//控制停止滑动切换的时候，只有最上面的一张卡片可以点击&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setClickable&lt;/span&gt;(true);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; else if (position &amp;lt;= &lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position &amp;lt;= 3.0f ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        float scale = (float) (page&lt;span class=&quot;selector-class&quot;&gt;.getWidth&lt;/span&gt;() &lt;span class=&quot;selector-tag&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;ScreenUtils&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.dp2px&lt;/span&gt;(context, spaceBetweenFirAndSecWith * position)) / (float) (page.getWidth());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//控制下面卡片的可见度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//控制停止滑动切换的时候，只有最上面的一张卡片可以点击&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setClickable&lt;/span&gt;(false);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotX&lt;/span&gt;(page.getWidth() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotY&lt;/span&gt;(page.getHeight() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleX&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleY&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(-page.getHeight() * position + (page.getHeight() * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f) * (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; - scale) + ScreenUtils.dp2px(context, spaceBetweenFirAndSecHeight) * position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h6 id=&quot;在分析上面的代码之前，我们需要有以下几个知识准备：&quot;&gt;&lt;a href=&quot;#在分析上面的代码之前，我们需要有以下几个知识准备：&quot; class=&quot;headerlink&quot; title=&quot;在分析上面的代码之前，我们需要有以下几个知识准备：&quot;&gt;&lt;/a&gt;在分析上面的代码之前，我们需要有以下几个知识准备：&lt;/h6&gt;&lt;ol&gt;
+&lt;li&gt;Viewpager的&lt;code&gt;setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer)&lt;/code&gt;方法的第一个参数，用来控制加入到Viewpager的Views对象是正序的还是倒序的，这里为了实现我们想要的效果，需要让第一个添加到布局的View来到第一个展示，所以传入&lt;code&gt;true&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;Viewpager的&lt;code&gt;setOffscreenPageLimit(int limit)&lt;/code&gt;方法，设置有多少的缓存Views，这个将决定我们的卡片重叠展示的效果显示几层卡片效果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现在我们继续看上面的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法，这个方法设计的很巧妙，当初我在探索的时候，通过打印日志来判断这个方法是如何执行的时候，发现这这个&lt;code&gt;position&lt;/code&gt;的值看似毫无规律，后来我想到以前数学里推理定理时的方法，从&lt;code&gt;特殊情况入手&lt;/code&gt;,再&lt;code&gt;一点点分析其他情况&lt;/code&gt;，然后一步步的实现上面的代码。&lt;/p&gt;
+&lt;h4 id=&quot;第一步，分析应用初始化进来的时候的position&quot;&gt;&lt;a href=&quot;#第一步，分析应用初始化进来的时候的position&quot; class=&quot;headerlink&quot; title=&quot;第一步，分析应用初始化进来的时候的position&quot;&gt;&lt;/a&gt;第一步，分析应用初始化进来的时候的position&lt;/h4&gt;&lt;p&gt;此时的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; onTransform(View page, &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Log.e(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt;+&lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//设置每个卡片y方向偏移量，这样可以使卡片都完全叠加起来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page.setTranslationY(-page.getHeight() * &lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;对应日志如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/three.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;根据这个日志很明显的可以判断得到：由于我现在设置的&lt;code&gt;setOffscreenPageLimit(int limit)&lt;/code&gt;值为4，所以可以看到position有上面几种情况，显而易见，每个position对应了一张卡片，这个时候界面的效果如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/five.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;现在猜想2,3,4,5号卡片就在1号卡片下面，现在要想个法子证实我们的猜想，将&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法改成下面这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt;+position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;//设置卡片透明度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;//设置缩放中点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      page&lt;span class=&quot;selector-class&quot;&gt;.setPivotX&lt;/span&gt;(page.getWidth() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      page&lt;span class=&quot;selector-class&quot;&gt;.setPivotY&lt;/span&gt;(page.getHeight() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;//设置缩放的比例 此处设置两个相邻的卡片的缩放比率为0.9f&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      page&lt;span class=&quot;selector-class&quot;&gt;.setScaleX&lt;/span&gt;((float) Math.pow(&lt;span class=&quot;number&quot;&gt;0.9&lt;/span&gt;f,position));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      page&lt;span class=&quot;selector-class&quot;&gt;.setScaleY&lt;/span&gt;((float) Math.pow(&lt;span class=&quot;number&quot;&gt;0.9&lt;/span&gt;f,position));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置每个卡片y方向偏移量，这样可以使卡片都完全叠加起来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(-page.getHeight() * position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行起来之后，证实了我们的想法：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/six.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;第二步，实现卡片叠加的最终效果&quot;&gt;&lt;a href=&quot;#第二步，实现卡片叠加的最终效果&quot; class=&quot;headerlink&quot; title=&quot;第二步，实现卡片叠加的最终效果&quot;&gt;&lt;/a&gt;第二步，实现卡片叠加的最终效果&lt;/h4&gt;&lt;p&gt;分析上面的图片效果，可以发现，把第二张卡片往下移动一段距离之后，就可以形成一个卡片叠加的初步效果了，变成下面这样：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/seven.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;其他的卡片，道理一样，那么如何实现这个向下偏移的值呢，这个值如何以一个表达式表现出来呢，先看下面的A,B,C步骤的分析图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/eight.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;显而易见，相隔两张卡片的偏移量为：&lt;code&gt;(H2-H1)+d1&lt;/code&gt;,我们稍微改变一下&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotX&lt;/span&gt;(page.getWidth() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotY&lt;/span&gt;(page.getHeight() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleX&lt;/span&gt;((float) Math.pow(&lt;span class=&quot;number&quot;&gt;0.9&lt;/span&gt;f, position));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleY&lt;/span&gt;((float) Math.pow(&lt;span class=&quot;number&quot;&gt;0.9&lt;/span&gt;f, position));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//修改过的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(-page.getHeight() * position + (page.getHeight() * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f) * (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; - (float) Math.pow(&lt;span class=&quot;number&quot;&gt;0.9&lt;/span&gt;f, position)) + ScreenUtils.dp2px(context, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此时的效果图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/nine.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;卡片半透明的时候，效果还不是特别的明显，把&lt;code&gt;page.setAlpha(0.5f)&lt;/code&gt;改为&lt;code&gt;page.setAlpha(1.0f)&lt;/code&gt;再试一次：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/ten.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;惊喜的发现这不就是卡片叠加效果嘛，虽然现在的效果细节还有点问题，我们不急，这个细节问题简单分析一下就会想到，是我们的缩放比例问题导致的，继续下一步的优化，我们将会解决这个问题。&lt;/p&gt;
+&lt;h4 id=&quot;第三步，根据相邻卡片的间距值动态设置缩放值&quot;&gt;&lt;a href=&quot;#第三步，根据相邻卡片的间距值动态设置缩放值&quot; class=&quot;headerlink&quot; title=&quot;第三步，根据相邻卡片的间距值动态设置缩放值&quot;&gt;&lt;/a&gt;第三步，根据相邻卡片的间距值动态设置缩放值&lt;/h4&gt;&lt;p&gt;上面的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法中，我们的x，y缩放比例都是写的一个固定值&lt;code&gt;0.9f&lt;/code&gt;,这个显然不能满足日常需求，我这里是设置上下两张卡片的宽度比来作为最终想要的缩放比例，修改&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    float scale = (float) (page&lt;span class=&quot;selector-class&quot;&gt;.getWidth&lt;/span&gt;() &lt;span class=&quot;selector-tag&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;ScreenUtils&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.dp2px&lt;/span&gt;(context, &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt; * position)) / (float) (page.getWidth());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setPivotX&lt;/span&gt;(page.getWidth() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setPivotY&lt;/span&gt;(page.getHeight() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setScaleX&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setScaleY&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//修改过的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(-page.getHeight() * position + (page.getHeight() * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f) * (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; - scale) + ScreenUtils.dp2px(context, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) * position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;再跑一下程序，完美的卡片效果就出现了：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/eleven.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;第四步，特殊到一般，实现最终的卡片滑动效果&quot;&gt;&lt;a href=&quot;#第四步，特殊到一般，实现最终的卡片滑动效果&quot; class=&quot;headerlink&quot; title=&quot;第四步，特殊到一般，实现最终的卡片滑动效果&quot;&gt;&lt;/a&gt;第四步，特殊到一般，实现最终的卡片滑动效果&lt;/h4&gt;&lt;p&gt;此时，我们尝试一下滑动Viewpager，发现卡片的切换效果并没有如期的出现，通过多次尝试和分析，我发现，由于我们这里没有对当前滑动过去的那张卡片做特殊处理，这里的特殊处理指的是：为了实现卡片抽动的切换效果，当前滑动的卡片应该不用执行任何缩放和偏移的操作，修改为&lt;code&gt;page.setTranslationY(0f);&lt;/code&gt;,具体代码如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里列出一篇博客：    &lt;a href=&quot;http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0814/1650.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0814/1650.html&lt;/a&gt;，他主要讲了对&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;中position的理解&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; (position &amp;lt;= &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//出现卡片抽动效果的关键代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        float scale = (float) (page&lt;span class=&quot;selector-class&quot;&gt;.getWidth&lt;/span&gt;() &lt;span class=&quot;selector-tag&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;ScreenUtils&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.dp2px&lt;/span&gt;(context, &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt; * position)) / (float) (page.getWidth());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setAlpha&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotX&lt;/span&gt;(page.getWidth() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setPivotY&lt;/span&gt;(page.getHeight() / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleX&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setScaleY&lt;/span&gt;(scale);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//修改过的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        page&lt;span class=&quot;selector-class&quot;&gt;.setTranslationY&lt;/span&gt;(-page.getHeight() * position + (page.getHeight() * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;f) * (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; - scale) + ScreenUtils.dp2px(context, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) * position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;至此，已经可以实现文章开头的动画效果了。回头想一下，我们一直在以特殊情况在写代码，最后发现其实他们就是所有一般情况中的一种，只不过特殊情况由于他的特殊性最容易进行分析总结。&lt;/p&gt;
+&lt;p&gt;最后补充下，在实际项目中，在每张卡片上可能还有有点击区域，更可能整张卡片都是一个点击区域，这个时候就会发现一个问题，当处于这种情况的时候：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/CardStackViewpager/blob/master/img/eleven.png?raw=true&quot; alt=&quot;enter image description here&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我不但可以点到卡片1，也会点到卡片2，卡片3。。。这样肯定不行的，所以我们再次回到&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法，在里面加一个控制：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; protected void onTransform(View page, float position) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     Log&lt;span class=&quot;selector-class&quot;&gt;.e&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt; + position);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; (position &amp;lt;= &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &lt;span class=&quot;comment&quot;&gt;//最上面的卡片可以点击&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         page&lt;span class=&quot;selector-class&quot;&gt;.setClickable&lt;/span&gt;(true);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         .......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &lt;span class=&quot;comment&quot;&gt;//下面的卡片不可点击&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         page&lt;span class=&quot;selector-class&quot;&gt;.setClickable&lt;/span&gt;(false);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         ........&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;另外我们可能只需要4张卡片重叠的效果就行，这个时候改变一下判断条件即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; onTransform(View page, &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     Log.e(&lt;span class=&quot;string&quot;&gt;&quot;onTransform&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;position  ==&amp;gt;&quot;&lt;/span&gt; + &lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;built_in&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt; &amp;lt;= &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         ......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;comment&quot;&gt;//控制显示几张卡片&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125; &lt;span class=&quot;built_in&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;position&lt;/span&gt; &amp;lt;= &lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;f) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   ......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;至此这边文章就要结束了，这是我的总结，希望能帮助大家对&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法有一个更深的理解。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;通过继承&lt;code&gt;Viewpager&lt;/code&gt;的&lt;code&gt;PageTransformer&lt;/code&gt;类，重写里面的&lt;code&gt;onTransform(View page, float position)&lt;/code&gt;方法，可以实现各种各样的Viewpager变化效果。&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="github" scheme="http://guxuewu.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模仿58到家百度地图地址选择效果</title>
+    <link href="http://guxuewu.com/2016/04/25/%E6%A8%A1%E4%BB%BF58%E5%88%B0%E5%AE%B6%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9C%B0%E5%9D%80%E9%80%89%E6%8B%A9%E6%95%88%E6%9E%9C/"/>
+    <id>http://guxuewu.com/2016/04/25/模仿58到家百度地图地址选择效果/</id>
+    <published>2016-04-25T13:19:51.000Z</published>
+    <updated>2016-07-25T13:26:23.422Z</updated>
+    
+    <content type="html">&lt;p&gt;先上58到家的效果图：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/BaiduMapSelectAddress/blob/master/imgs/58%E5%88%B0%E5%AE%B6%E6%95%88%E6%9E%9C.gif?raw=true&quot; alt=&quot;58到家的效果图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;刚好最近有个项目要实现此效果，于是我就去好好研究了一把百度地图API，不得不说，百度地图的类参考文档简直好啊，遇到思绪打不开的时候，看看他的类参考文档，瞬间思路大开&lt;a href=&quot;http://wiki.lbsyun.baidu.com/cms/androidsdk/doc/v3_6_1/&quot; title=&quot;http://wiki.lbsyun.baidu.com/cms/androidsdk/doc/v3_6_1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://wiki.lbsyun.baidu.com/cms/androidsdk/doc/v3_6_1/&lt;/a&gt; 我这里用的3.6.1的，所以查看的对应版本的类参考。&lt;/p&gt;
+&lt;p&gt;下面再放上我这个demo实现的效果：&lt;/p&gt;
+&lt;p&gt;地图选择界面1:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/BaiduMapSelectAddress/blob/master/imgs/2.png?raw=true&quot; alt=&quot;选择地图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;地图选择界面2：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/BaiduMapSelectAddress/blob/master/imgs/3.png?raw=true&quot; alt=&quot;选择地图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;地图选择界面3：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/BaiduMapSelectAddress/blob/master/imgs/1.png?raw=true&quot; alt=&quot;选择地图&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;几个关键点&quot;&gt;&lt;a href=&quot;#几个关键点&quot; class=&quot;headerlink&quot; title=&quot;几个关键点&quot;&gt;&lt;/a&gt;几个关键点&lt;/h2&gt;&lt;p&gt;这里用到了几个关键的地方：&lt;/p&gt;
+&lt;p&gt;一：如何设置的marker一直在地图的中间,这里使用了BaiduMap的OnMapStatusChangeListener监听接口:&lt;br&gt;&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;mBaiduMap&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.setOnMapStatusChangeListener&lt;/span&gt;(new OnMapStatusChangeListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public void onMapStatusChangeStart(MapStatus arg0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public void onMapStatusChangeFinish(MapStatus arg0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    search_ll&lt;span class=&quot;selector-class&quot;&gt;.setVisibility&lt;/span&gt;(View.GONE);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    mBaiduMap&lt;span class=&quot;selector-class&quot;&gt;.clear&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    mBaiduMap&lt;span class=&quot;selector-class&quot;&gt;.addOverlay&lt;/span&gt;(new MarkerOptions().position(arg0.target)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .icon(mCurrentMarker));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 反Geo搜索&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    mSearch&lt;span class=&quot;selector-class&quot;&gt;.reverseGeoCode&lt;/span&gt;(new ReverseGeoCodeOption()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .location(arg0.target));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public void onMapStatusChange(MapStatus arg0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这个&lt;code&gt;arg0.target&lt;/code&gt;就是当前map控件的中点位置的坐标，我们可以获取到，然后重新设置一下marker就可以了，不过在之前一定要记得&lt;code&gt;mBaiduMap.clear();&lt;/code&gt;，不然会出现很多个marker。&lt;/p&gt;
+&lt;p&gt;二：如果通过中点的经纬度获取到周围的地点：使用到了GeoCoder类，这个类可以通过坐标反编译到地址，当然可以获取到这个地址周围的地址：&lt;br&gt;&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;void&lt;/span&gt; onGetReverseGeoCodeResult(ReverseGeoCodeResult result) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (result == &lt;span class=&quot;built_in&quot;&gt;null&lt;/span&gt; || result.error != SearchResult.ERRORNO.NO_ERROR) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   Toast.makeText(LocationActivity.this, &lt;span class=&quot;string&quot;&gt;&quot;抱歉，未能找到结果&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   Toast.LENGTH_LONG).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//这就是附近地址的列表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;List&lt;/span&gt;&amp;lt;PoiInfo&amp;gt; &lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt; = result.getPoiList();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt; != &lt;span class=&quot;built_in&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; &lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt;.size() &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   nearAddresses.clear();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   nearAddresses.addAll(&lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   nearAddressAdapter.notifyDataSetChanged();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;三：如何实现在输入框中一输入一个关键字，就出来一串地址列表：使用了PoiSearch类，这个类可以通过设置搜索监听事件，来搜索和输入关键字有关联的地址：&lt;/p&gt;
+&lt;p&gt;先给输入框加一个输入监听事件：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;selector-tag&quot;&gt;search_et&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.addTextChangedListener&lt;/span&gt;(new TextWatcher() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public void onTextChanged(CharSequence cs, int start, int before,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     int count) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; (cs == null || cs.length() &amp;lt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   search_ll&lt;span class=&quot;selector-class&quot;&gt;.setVisibility&lt;/span&gt;(View.GONE);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   return;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//发起搜索请求&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mPoiSearch.searchInCity((new PoiCitySearchOption())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   .city(cityName).keyword(cs.toString()).pageNum(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   .pageCapacity(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public void beforeTextChanged(CharSequence s, int start, int count,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     int after) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public void afterTextChanged(Editable s) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后在搜索结果回调中处理结果并展示出来：&lt;br&gt;&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public void onGetPoiResult(PoiResult &lt;span class=&quot;literal&quot;&gt;result&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;result&lt;/span&gt; == null&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|| &lt;span class=&quot;literal&quot;&gt;result&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;error&lt;/span&gt; == SearchResult.ERRORNO.RESULT_NOT_FOUND) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;result&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;error&lt;/span&gt; == SearchResult.ERRORNO.NO_ERROR) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;List&amp;lt;PoiInfo&amp;gt; &lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt; = &lt;span class=&quot;literal&quot;&gt;result&lt;/span&gt;.getAllPoi();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;search_ll.setVisibility(View.VISIBLE);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt; != null &amp;amp;&amp;amp; &lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt;.size() &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;searchAddresses.clear();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;searchAddresses.addAll(&lt;span class=&quot;built_in&quot;&gt;list&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;searchAddressAdapter.notifyDataSetChanged();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;至此一个初步模仿58到家百度地图选择地址的效果就完成啦。通过此文希望和大家一起学习进步。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先上58到家的效果图：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://guxuewu.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Bmob开源APP-兄弟连</title>
+    <link href="http://guxuewu.com/2016/02/25/%E5%9F%BA%E4%BA%8EBmob%E5%BC%80%E6%BA%90APP-%E5%85%84%E5%BC%9F%E8%BF%9E/"/>
+    <id>http://guxuewu.com/2016/02/25/基于Bmob开源APP-兄弟连/</id>
+    <published>2016-02-25T13:38:28.000Z</published>
+    <updated>2016-07-25T13:42:18.868Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;兄弟连是自己突发的一个点子，因为现在的社区类APP十分火爆，打着各种各样旗号的社交APP层出不穷，文采不咋样的我曾为这个APP的主题死了N多脑细胞，最终定成了“兄弟连”,名字也许有点”丑陋“，但是我觉得的确可以用来做为一个社交APP的名字，所以，那就这么定啦。从下面开始 ，就不需要纠结名字了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;一-后台的选择：&quot;&gt;&lt;a href=&quot;#一-后台的选择：&quot; class=&quot;headerlink&quot; title=&quot;一 后台的选择：&quot;&gt;&lt;/a&gt;一 后台的选择：&lt;/h2&gt;&lt;p&gt;一款移动社交APP肯定少不了一个多功能的后台，当时有考虑过喊自己的程序猿小伙伴一起搞这个后台，但是因为时间、和精力的原因，我最终放弃了此想法，因为我发现了一个比之更便捷的方式，使用第三方云后台服务器，经过几重筛选，我选择了Bmob：&lt;a href=&quot;http://www.bmob.cn/&quot; title=&quot;http://www.bmob.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.bmob.cn/&lt;/a&gt;，它们官网的口号是：Bmob后端云让移动开发更简单。。。那么就选他家了~&lt;/p&gt;
+&lt;h2 id=&quot;二-App主题颜色配置选择：&quot;&gt;&lt;a href=&quot;#二-App主题颜色配置选择：&quot; class=&quot;headerlink&quot; title=&quot;二 App主题颜色配置选择：&quot;&gt;&lt;/a&gt;二 App主题颜色配置选择：&lt;/h2&gt;&lt;p&gt;这里要向大家推荐一个非常实用的网站了：&lt;a href=&quot;http://www.materialpalette.com/teal/light-green&quot; title=&quot;http://www.materialpalette.com/teal/light-green&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.materialpalette.com/teal/light-green&lt;/a&gt;，这个网站可以快速的帮大家定制一款APP的主题色，并且可以下载对应的配色方案到本地，对于程序猿们简直一大福利。&lt;/p&gt;
+&lt;h2 id=&quot;三-App各种icon图标的选择：&quot;&gt;&lt;a href=&quot;#三-App各种icon图标的选择：&quot; class=&quot;headerlink&quot; title=&quot;三 App各种icon图标的选择：&quot;&gt;&lt;/a&gt;三 App各种icon图标的选择：&lt;/h2&gt;&lt;p&gt;说到icon，不得不提到阿里巴巴矢量图库：&lt;a href=&quot;http://iconfont.cn/repositories&quot; title=&quot;http://iconfont.cn/repositories &quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://iconfont.cn/repositories &lt;/a&gt;，这个网站不但适用UI设计师，也同样适用于想独自完成一款App设计的程序猿们，在里面，你可以发掘到任何想要的icon，并且在下载的时候可以设置各种颜色，配合上面的样色配置网站，简直实用到家~&lt;/p&gt;
+&lt;h2 id=&quot;四-APP几个模块分析：&quot;&gt;&lt;a href=&quot;#四-APP几个模块分析：&quot; class=&quot;headerlink&quot; title=&quot;四 APP几个模块分析：&quot;&gt;&lt;/a&gt;四 APP几个模块分析：&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;2.1 首页：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首页采用黄金比例分割的方式，将页面分成了四个部分：兄弟连，好友中心，图片故事，个人中心；&lt;br&gt;并且为四个布局的点击添加了缩放动画效果，使整个页面在简洁的同时又不失酷炫。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/1.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.2 兄弟连:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;没有加入过任何兄弟连的时候：会给用户相关友好性的提示。并且点击页面的加号或者右上角的加号之后，会弹出选择对话框。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/2.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/3.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;创建和查找功能的页面尽量做到了简洁，并且为查找设置了热门推荐功能和名称查找功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/4.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/5.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/6.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;加入兄弟连过兄弟连之后：这里加入了谷歌自带的SwipeRefreshLayout，通过手势向下拖动，可以进行下拉刷新的操作&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/8.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击兄弟连列表，可以进入某一个兄弟连的详情界面，点击成员数目，可以进入成员列表&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/9.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击右上角的发帖按钮，可以跳转到发帖界面，进行发帖操作：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/10.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;发帖成功之后会自动跳转到上一个页面，并做自动刷新操作。点击发的帖子，进入帖子详情界面：在详情页面可以对帖子内容、评论进行查看，并且可以进行收藏、评论的操作。并且点击帖子图片，可以进入图片查看界面。在首页和聊天主页均会有聊天提醒功能。并可以在个人中心设置提醒开关。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/11.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/12.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/13.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.3 好友中心：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;好友中心集成了最近聊天消息列表，联系人列表，添加好友入口，新朋友列表入口，附近的人列表入口。联系人页面的搜索为本地搜索功能。短按消息列表可以进入聊天界面，长按聊天列表项，弹出是否删除该聊天对话框。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/14.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/15.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/16.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4 图片故事：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;图片故事这个模块实现了图片即时分享，用户可以在右上角的快速入口进入发布图片故事入口，首页为最近的图片故事列表。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/17.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/18.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5 个人中心：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;个人中心里面有：个人资料，黑名单，接收消息控制，退出账号等功能模块。这块比较复杂的是个人资料界面，里面又集成了性别设置，昵称设置，城市设置功能模块。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/19.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/20.png?raw=true&quot; alt=&quot;首页图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.6 特别模块：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;腾讯Bugly：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;整个代码中还集成了腾讯的Bugly：&lt;a href=&quot;http://bugly.qq.com/&quot; title=&quot;http://bugly.qq.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bugly.qq.com/&lt;/a&gt;，Bugly是腾讯内部使用的移动应用崩溃检测服务，同时支持 iOS 和 Android 平台。目前 Bugly 已经对移动开发者开放。移动开发者在自己的  App 中接入 Bugly 的 SDK 后，就能在应用崩溃后获得信息上报。开发者可以通过 Bugly 的网站看到崩溃的概要和详情。崩溃概要包括，崩溃的列表、近日按小时统计趋势、昨天前天的崩溃次数和崩溃率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;百度地图定位：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;百度地图：&lt;a href=&quot;http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5&quot; title=&quot;http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5&lt;/a&gt; Android SDK是一套基于Android 2.1及以上版本设备的应用程序接口。 您可以使用该套 SDK开发适用于Android系统移动设备的地图应用，通过调用地图SDK接口，您可以轻松访问百度地图服务和数据，构建功能丰富、交互性强的地图类应用程序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;五-引用的开源库介绍：&quot;&gt;&lt;a href=&quot;#五-引用的开源库介绍：&quot; class=&quot;headerlink&quot; title=&quot;五 引用的开源库介绍：&quot;&gt;&lt;/a&gt;五 引用的开源库介绍：&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.Sweet Alert Dialog&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/pedant/sweet-alert-dialog&quot; title=&quot;https://github.com/pedant/sweet-alert-dialog&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/pedant/sweet-alert-dialog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：Android版的SweetAlert，清新文艺，快意灵动的甜心弹框&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.Butter Knife&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/JakeWharton/butterknife&quot; title=&quot;https://github.com/JakeWharton/butterknife&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/JakeWharton/butterknife&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：Android视图注入库，配合AS的插件使用，简直高效&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;3.FlycoDialog-Master&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/H07000223/FlycoDialog_Master&quot; title=&quot;https://github.com/H07000223/FlycoDialog_Master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/H07000223/FlycoDialog_Master&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：一个强大的Android对话框库,简化自定义对话框.支持2.2+.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;4.android-crop&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/jdamcd/android-crop&quot; title=&quot;https://github.com/jdamcd/android-crop&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jdamcd/android-crop&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：An Android library project that provides a simple image cropping Activity, based on code from AOSP.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;5.google-gson&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/google/gson&quot; title=&quot;https://github.com/google/gson&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/google/gson&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;6.EventBus&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/greenrobot/EventBus&quot; title=&quot;https://github.com/greenrobot/EventBus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/greenrobot/EventBus&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：EventBus is publish/subscribe event bus optimized for Android.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;7.Material Dialog v1.2.2&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/drakeet/MaterialDialog&quot; title=&quot;https://github.com/drakeet/MaterialDialog&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/drakeet/MaterialDialog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：This is an Android library, I call it MaterialDialog. It’s very easy to use. Just new it &amp;amp; call show() method, then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design. I hope that you will like it, and enjoys it. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;8.SwitchButton&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/kyleduo/SwitchButton&quot; title=&quot;https://github.com/kyleduo/SwitchButton&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/kyleduo/SwitchButton&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：This project provides you a convenient way to use and customise a SwitchButton widget in Android. With just resources changed and attrs set, you can create a lifelike SwitchButton of Android 5.0+, iOS, MIUI, or Flyme and so on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;9.Universal Image Loader&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/nostra13/Android-Universal-Image-Loader&quot; title=&quot;https://github.com/nostra13/Android-Universal-Image-Loader&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/nostra13/Android-Universal-Image-Loader&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：Android library #1 on GitHub. UIL aims to provide a powerful, flexible and highly customizable instrument for image loading, caching and displaying. It provides a lot of configuration options and good control over the image loading and caching process.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;10.Picasso&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：&lt;a href=&quot;https://github.com/square/picasso&quot; title=&quot;https://github.com/square/picasso&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/square/picasso&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;介绍：A powerful image downloading and caching library for Android.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;兄弟连是自己突发的一个点子，因为现在的社区类APP十分火爆，打着各种各样旗号的社交APP层出不穷，文采不咋样的我曾为这个APP的主题死了N多脑细胞，最终定成了“兄弟连”,名字也许有点”丑陋“，但是我觉得的确可以用来做为一个社交APP的名字，所以，那就这么定啦。从下面开始 ，就不需要纠结名字了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://guxuewu.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个基于MVP模式的应用基础框架</title>
+    <link href="http://guxuewu.com/2016/01/25/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EMVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/"/>
+    <id>http://guxuewu.com/2016/01/25/一个基于MVP模式的应用基础框架/</id>
+    <published>2016-01-25T13:03:51.000Z</published>
+    <updated>2016-07-25T13:18:20.548Z</updated>
+    
+    <content type="html">&lt;p&gt;此框架在之前自己总结的一套开发框架的基础上，加入了MVP模式，通过这个模式将View的更新展示操作和业务逻辑分割开来，这样可以使整个代码的可读性加强，化繁为简。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;这个框架核心代码结构如下图：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/NateRobinson/MyBaseMvpLibrary/blob/master/imgs/1.png?raw=true&quot; alt=&quot;框架结构图&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;baseadapter&lt;/em&gt;&lt;/strong&gt;：里面是列表适配器的封装代码，通过这个可以使适配器代码看起来更简洁，此处代码是参考网上大神的总结而来；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;baseui&lt;/em&gt;&lt;/strong&gt;：里面是MVP模式的核心代码，以及ActivityCollections【视图集合类】和BaseApplication类；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;httprequest&lt;/em&gt;&lt;/strong&gt;：这里面会根据不同的项目自定制一些网络请求底层，这里就不上代码了，因为逻辑会因每个项目有不同的变化；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;netstatus&lt;/em&gt;&lt;/strong&gt;：网络状态监听类，集成在每个页面中，这样用户设备的网络状况一发生变化，就可以通知到页面做出相应的处理；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;utils&lt;/em&gt;&lt;/strong&gt;：这里面放置了各种工具类，详情可以看代码；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;view&lt;/em&gt;&lt;/strong&gt;：这里面放置一些自定义的视图控件。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此框架在之前自己总结的一套开发框架的基础上，加入了MVP模式，通过这个模式将View的更新展示操作和业务逻辑分割开来，这样可以使整个代码的可读性加强，化繁为简。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://guxuewu.com/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Octopress搭建静态博客网站</title>
+    <link href="http://guxuewu.com/2015/08/27/%E4%BD%BF%E7%94%A8Octopress%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
+    <id>http://guxuewu.com/2015/08/27/使用Octopress搭建静态博客网站/</id>
+    <published>2015-08-27T02:38:28.000Z</published>
+    <updated>2016-07-25T13:32:27.049Z</updated>
+    
+    <content type="html"> &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;1-Octopress简介&quot;&gt;&lt;a href=&quot;#1-Octopress简介&quot; class=&quot;headerlink&quot; title=&quot;1.Octopress简介&quot;&gt;&lt;/a&gt;1.Octopress简介&lt;/h1&gt;&lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;Octopress是一个基于jekyll的静态的静态博客站点生成系统，很大程度的简化了jekyll搭建博客过程。&lt;/p&gt;
+&lt;h2 id=&quot;为什么用Octopress而不用wordpress&quot;&gt;&lt;a href=&quot;#为什么用Octopress而不用wordpress&quot; class=&quot;headerlink&quot; title=&quot;为什么用Octopress而不用wordpress&quot;&gt;&lt;/a&gt;为什么用Octopress而不用wordpress&lt;/h2&gt;&lt;p&gt;wordpress有太多的缺点：需要买主机，域名。它还是动态的，并且过度的依赖数据库，迁移成本高。&lt;/p&gt;
+&lt;h2 id=&quot;Octopress特点&quot;&gt;&lt;a href=&quot;#Octopress特点&quot; class=&quot;headerlink&quot; title=&quot;Octopress特点&quot;&gt;&lt;/a&gt;Octopress特点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;命令行操作&lt;/li&gt;
+&lt;li&gt;纯文本写博客&lt;/li&gt;
+&lt;li&gt;定制性高&lt;/li&gt;
+&lt;li&gt;纯静态&lt;/li&gt;
+&lt;li&gt;版本化管理&lt;/li&gt;
+&lt;li&gt;迁移成本低&lt;/li&gt;
+&lt;li&gt;简洁的Ruby框架&lt;/li&gt;
+&lt;li&gt;Markdown语法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Octopress目录结构&quot;&gt;&lt;a href=&quot;#Octopress目录结构&quot; class=&quot;headerlink&quot; title=&quot;Octopress目录结构&quot;&gt;&lt;/a&gt;Octopress目录结构&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;主题插件等文件夹&lt;/li&gt;
+&lt;li&gt;source文件夹&lt;/li&gt;
+&lt;li&gt;public文件夹&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;一般使用流程&quot;&gt;&lt;a href=&quot;#一般使用流程&quot; class=&quot;headerlink&quot; title=&quot;一般使用流程&quot;&gt;&lt;/a&gt;一般使用流程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;搭建环境&lt;/li&gt;
+&lt;li&gt;纯文本写博客&lt;/li&gt;
+&lt;li&gt;生成静态网页&lt;/li&gt;
+&lt;li&gt;本地预览&lt;/li&gt;
+&lt;li&gt;部署到github&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;2-Octopress环境搭建&quot;&gt;&lt;a href=&quot;#2-Octopress环境搭建&quot; class=&quot;headerlink&quot; title=&quot;2.Octopress环境搭建&quot;&gt;&lt;/a&gt;2.Octopress环境搭建&lt;/h1&gt;&lt;h2 id=&quot;软件安装&quot;&gt;&lt;a href=&quot;#软件安装&quot; class=&quot;headerlink&quot; title=&quot;软件安装&quot;&gt;&lt;/a&gt;软件安装&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Git安装：&lt;/p&gt;
+&lt;p&gt;  版本管理工具，可以将我们生成的静态网页托管到GitHub上。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;设置全局&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;git config --global user.name &amp;quot;name&amp;quot; 配置username&lt;/code&gt;&lt;br&gt;  &lt;code&gt;git config --global user.email &amp;quot;邮箱&amp;quot;  配置邮箱&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置ssh&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;ssh -keygen -t rsa -C &amp;quot;邮箱&amp;quot;  设置rsa的数字指纹，一个是公钥，一个是私钥
+  公钥要提交到github上，私钥需要自己保存&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;验证ssh key&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;ssh  -T git@github.com   会用本地的私钥和github的公钥进行匹配&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ruby安装：&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;https://www.ruby-lang.org/en/&quot; title=&quot;https://www.ruby-lang.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.ruby-lang.org/en/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DevKit安装&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://rubyinstaller.org/add-ons/devkit/&quot; title=&quot;http://rubyinstaller.org/add-ons/devkit/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://rubyinstaller.org/add-ons/devkit/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DevKit与Ruby两者的关联&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.&lt;code&gt;ruby dk.rb init&lt;/code&gt; 执行关联操作 会生成config.yml 配置文件；&lt;/li&gt;
+&lt;li&gt;2.如果配置文件中自行找到并设置了本地的ruby安装目录，那么就直接进行下一步操作，否则需要看一下“遇到问题”的解决方法；&lt;/li&gt;
+&lt;li&gt;3.执行 &lt;code&gt;ruby dk.rb install&lt;/code&gt;    跳出下面提示，表示安装成功&lt;br&gt;&lt;code&gt;[INFO] Updating convenience notice gem override for &amp;#39;d:/Ruby21&lt;/code&gt;&lt;br&gt;&lt;code&gt;[INFO] Installing &amp;#39;d:/Ruby21-x64/lib/ruby/site_ruby/devkit.rb&amp;#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可能遇到问题&lt;/p&gt;
+&lt;p&gt;  没有发现我们安装的ruby目录的话，需要手动的到刚才生成的config.yml文件中进行添加：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.&lt;code&gt;vim  config.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2.按下“i”键，执行insert操作；&lt;/li&gt;
+&lt;li&gt;3.插入：- 本地ruby的目录&lt;/li&gt;
+&lt;li&gt;4.按“:wq”保存并退出vim模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;MarkdownPad安装&lt;/p&gt;
+&lt;p&gt;  windows下的markdown语法编辑器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;awesomium安装&lt;/p&gt;
+&lt;p&gt;  实现markdown编辑与预览的效果&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pygments安装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装 Python&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.前往 &lt;a href=&quot;http://www.python.org/download/&quot; title=&quot;http://www.python.org/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.python.org/download/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.下载合适的 Python windows 安装包，如 Python 2.7.6 Windows Installer。 请注意，Python 2 可能会更合适，因为暂时 Python 3 可能不会正常工作。&lt;/li&gt;
+&lt;li&gt;3.安装&lt;/li&gt;
+&lt;li&gt;4.添加安装路径 (如： C:\Python27) 至 PATH。(如何操作? 请参见 故障诊断 #1)&lt;/li&gt;
+&lt;li&gt;5.检验 Python 安装是否成功&lt;br&gt;  &lt;code&gt;python –V&lt;/code&gt;&lt;br&gt;   输出示例：&lt;br&gt;  &lt;code&gt;Python 2.7.6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装 ‘Easy Install’&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.浏览&lt;a href=&quot;https://pypi.python.org/pypi/setuptools#installation-instructions&quot; title=&quot;https://pypi.python.org/pypi/setuptools#installation-instructions&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://pypi.python.org/pypi/setuptools#installation-instructions&lt;/a&gt;来查看详细的安装指南。&lt;/li&gt;
+&lt;li&gt;2.对于 Windows 7 的机器，下载 &lt;a href=&quot;https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py&quot; title=&quot;ez_setup.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ez_setup.py&lt;/a&gt; 并保存，例如，至C:\。 然后从命令行使用 Python 运行此文件：&lt;br&gt;  &lt;code&gt;python “C:\ez_setup.py”&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;3.添加 ‘Python Scripts’ 路径 (如： C:\Python27\Scripts) 至 PATH&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装 Pygments&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.确保 easy_install 已经正确安装&lt;br&gt;  &lt;code&gt;easy_install --version&lt;/code&gt;&lt;br&gt;  输出示例：&lt;br&gt;  &lt;code&gt;setuptools 3.1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2.使用 “easy_install” 来安装 Pygments:&lt;br&gt;  &lt;code&gt;easy_install Pygments&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;配置一个简单的Octopress主题&quot;&gt;&lt;a href=&quot;#配置一个简单的Octopress主题&quot; class=&quot;headerlink&quot; title=&quot;配置一个简单的Octopress主题&quot;&gt;&lt;/a&gt;配置一个简单的Octopress主题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;克隆Octopress到本地&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;https://github.com/imathis/octopress.git&quot; title=&quot;https://github.com/imathis/octopress.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/imathis/octopress.git&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装依赖库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;先配置一下安装源&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gem sources -a http://ruby.taobao.org&lt;/code&gt;  在安装源地址中append一个淘宝的ruby地址&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gem sources -r http://rubygems.org&lt;/code&gt;  将ruby自带的http的安装源remove掉    &lt;/li&gt;
+&lt;li&gt;修改一下GenFile文件中的软件源为：&lt;code&gt;source &amp;quot;http://ruby.taobao.org&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装依赖库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gem install bundler&lt;/code&gt; 安装bundler &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bundle install&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装并使用默认主题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rake intall&lt;/code&gt; 生成一个source目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rake generate&lt;/code&gt; 生成public文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rake preview&lt;/code&gt; 打开一个服务，进行预览&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;preview安装好的主题&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;可能遇到问题&quot;&gt;&lt;a href=&quot;#可能遇到问题&quot; class=&quot;headerlink&quot; title=&quot;可能遇到问题&quot;&gt;&lt;/a&gt;可能遇到问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;静态网站加载很慢&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.使用谷歌浏览器打开：&lt;a href=&quot;http://localhost:4000&quot; title=&quot;http://localhost:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.F12打开控制面板，查看网络加载变慢原因&lt;/li&gt;
+&lt;li&gt;3.会发现是两个js的引用加载失败，由于网络的原因&lt;/li&gt;
+&lt;li&gt;4.解决方法，将jquery.min.js改为百度的”&lt;script src=&quot;//libs.baidu.com/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;“，可以提高速度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;3-生成博客与单页面&quot;&gt;&lt;a href=&quot;#3-生成博客与单页面&quot; class=&quot;headerlink&quot; title=&quot;3.生成博客与单页面&quot;&gt;&lt;/a&gt;3.生成博客与单页面&lt;/h1&gt;&lt;h2 id=&quot;新建博客与单页面&quot;&gt;&lt;a href=&quot;#新建博客与单页面&quot; class=&quot;headerlink&quot; title=&quot;新建博客与单页面&quot;&gt;&lt;/a&gt;新建博客与单页面&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;新建博客&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;rake new_post[&amp;quot;title&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;新建单页面&lt;/p&gt;
+&lt;p&gt;  单页面和博客是不一样的，单页面在博客首页是看不到的，单页面可以用来做一些例如 About Me的页面之类的&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;方式一：&lt;code&gt;rake new_page[page1]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  在creates/source/page1/index.markdown会自动生成一个page1的文件目录，并在里面生成一个index.markdown文件`&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;方式二：&lt;code&gt;rake new_page[page1/pagename.html]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  creates/source/page1/pagename.html   会自动生成一个page1的文件目录，并且在里面生成pagename.html的网页文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;编写博客的工具&quot;&gt;&lt;a href=&quot;#编写博客的工具&quot; class=&quot;headerlink&quot; title=&quot;编写博客的工具&quot;&gt;&lt;/a&gt;编写博客的工具&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;markdownpad&lt;/li&gt;
+&lt;li&gt;记事本&lt;/li&gt;
+&lt;li&gt;vim命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;可能遇到的问题&quot;&gt;&lt;a href=&quot;#可能遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;可能遇到的问题&quot;&gt;&lt;/a&gt;可能遇到的问题&lt;/h2&gt;&lt;p&gt;代码高亮markdown书写之后，解析失败&lt;br&gt;这是由于缺少了 Pygments这个解析代码片段高亮的插件&lt;br&gt;解决方法：返回之前步骤安装Pygments&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;4-部署网站到GitHub&quot;&gt;&lt;a href=&quot;#4-部署网站到GitHub&quot; class=&quot;headerlink&quot; title=&quot;4.部署网站到GitHub&quot;&gt;&lt;/a&gt;4.部署网站到GitHub&lt;/h1&gt;&lt;h2 id=&quot;部署博客到GitHub&quot;&gt;&lt;a href=&quot;#部署博客到GitHub&quot; class=&quot;headerlink&quot; title=&quot;部署博客到GitHub&quot;&gt;&lt;/a&gt;部署博客到GitHub&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;新建一个名为username.github.io格式的仓库&lt;/p&gt;
+&lt;p&gt;  必须要验证邮件才能使用github.io&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;与本地的Octopress目录绑定&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rake setup_github_pages&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为了保证部署的网站是最新的，先执行下面的命令生成最新的网站&lt;code&gt;rake generate&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rake deploy&lt;/code&gt;  会将最新的public目录中的静态网站生成到deploy文件夹中，并push到github&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;托管源码到Github&quot;&gt;&lt;a href=&quot;#托管源码到Github&quot; class=&quot;headerlink&quot; title=&quot;托管源码到Github&quot;&gt;&lt;/a&gt;托管源码到Github&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;将source目录更新到远程仓库&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git add .&lt;/p&gt;
+&lt;p&gt;git commit -m “message”&lt;/p&gt;
+&lt;p&gt;git push origin source&lt;/p&gt;
+&lt;p&gt;创建一个源码的分支，这样就可以在任何电脑使用了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;可能遇到问题-1&quot;&gt;&lt;a href=&quot;#可能遇到问题-1&quot; class=&quot;headerlink&quot; title=&quot;可能遇到问题&quot;&gt;&lt;/a&gt;可能遇到问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;当换了一台电脑之后，&lt;ul&gt;
+&lt;li&gt;1.先clone source库： &lt;code&gt;git clone -b source xxxxxxxxx&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;2.然后执行”Octopress环境搭建“==》”配置一个简单的Octopress主题“==》”安装依赖库“&lt;/li&gt;
+&lt;li&gt;3.安装并使用默认主题 ：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rake intall&lt;/code&gt;  生成一个source目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rake generate&lt;/code&gt; 生成public&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;4.”部署网站到GitHub“==》”部署博客到GitHub“=》执行 &lt;code&gt;rake setup_github_pages&lt;/code&gt; 绑定起来&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;进入到刚生产的_deploy目录，执行&lt;code&gt;git pull origin master&lt;/code&gt;  更新github上的之前绑定的网站到此目录【不然会导致deploy失败】&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;6.下面就可以和之前在第一台电脑上进行的操作一样了，添加博客，genrate ，deploy。。。。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;5-博客自定义与配置&quot;&gt;&lt;a href=&quot;#5-博客自定义与配置&quot; class=&quot;headerlink&quot; title=&quot;5.博客自定义与配置&quot;&gt;&lt;/a&gt;5.博客自定义与配置&lt;/h1&gt;&lt;h2 id=&quot;完善主配置文件：-config-yml&quot;&gt;&lt;a href=&quot;#完善主配置文件：-config-yml&quot; class=&quot;headerlink&quot; title=&quot;完善主配置文件：_config.yml&quot;&gt;&lt;/a&gt;完善主配置文件：_config.yml&lt;/h2&gt;&lt;p&gt;可以设置url，title，author等信息&lt;/p&gt;
+&lt;h2 id=&quot;使用第三方插件&quot;&gt;&lt;a href=&quot;#使用第三方插件&quot; class=&quot;headerlink&quot; title=&quot;使用第三方插件&quot;&gt;&lt;/a&gt;使用第三方插件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;评论功能&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册一个说说账户并新建一个后台&lt;br&gt;&lt;a href=&quot;http://dev.duoshuo.com/&quot; title=&quot;http://dev.duoshuo.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dev.duoshuo.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;在_config.yml中新建一个多说的评论开关&lt;blockquote&gt;
+&lt;p&gt;duoshuo_comment: true&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改source_layouts目录中post.html模板&lt;br&gt;  在里面修改掉之前默认的评论插件，那个在中国不适合&lt;/p&gt;
+  &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% if site.duoshuo_comment == true %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;Comments&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;disqus_thread&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;aria-live&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;polite&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;#123;% include post/duoshuo_comment.html %&amp;#125;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% endif %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在source_includes\post目录下新建一个多说的评论模板&lt;/p&gt;
+&lt;p&gt;  代码来之多说网站，进行一些全局变量的修改之后，代码如下：&lt;/p&gt;
+  &lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 多说评论框 start --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;ds-thread&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;data-thread-key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; page.id &amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;data-title&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; page.title &amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;data-url&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; site.url &amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&lt;span class=&quot;string&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; page.url &amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 多说评论框 end --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; duoshuoQuery = &amp;#123;short_name:&lt;span class=&quot;string&quot;&gt;&quot;your duoshuo name&quot;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ds = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	ds.type = &lt;span class=&quot;string&quot;&gt;&#39;text/javascript&#39;&lt;/span&gt;;ds.async = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	ds.src = (&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.location.protocol == &lt;span class=&quot;string&quot;&gt;&#39;https:&#39;&lt;/span&gt; ? &lt;span class=&quot;string&quot;&gt;&#39;https:&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;http:&#39;&lt;/span&gt;) + &lt;span class=&quot;string&quot;&gt;&#39;//static.duoshuo.com/embed.js&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	ds.charset = &lt;span class=&quot;string&quot;&gt;&#39;UTF-8&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&#39;head&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	|| &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&#39;body&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]).appendChild(ds);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 多说公共JS代码 end --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;社会化分享功能&quot;&gt;&lt;a href=&quot;#社会化分享功能&quot; class=&quot;headerlink&quot; title=&quot;社会化分享功能&quot;&gt;&lt;/a&gt;社会化分享功能&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;打开 JiaThis网站获取分享代码&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://www.jiathis.com/&quot; title=&quot;http://www.jiathis.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jiathis.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在_config.yml中新建一个jiashare的分享开关&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jia_share: true&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改source_includes\post目录下的sharing.html&lt;/p&gt;
+  &lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;添加下面代码 ：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;if&lt;/span&gt;&lt;/span&gt; site.jia_share %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;include&lt;/span&gt;&lt;/span&gt; post/jia_share.html %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;endif&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在source_includes\post目录 下添加jia_share.html&lt;/p&gt;
+&lt;p&gt;  代码就是从jiathis网站拷贝的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;自定义404界面&quot;&gt;&lt;a href=&quot;#自定义404界面&quot; class=&quot;headerlink&quot; title=&quot;自定义404界面&quot;&gt;&lt;/a&gt;自定义404界面&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建一个404.markdown文件 设置一下其基本属性如下：&lt;/p&gt;
+  &lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;layout:&lt;/span&gt; page&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;title:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;404 Not Found&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;date:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;bullet&quot;&gt;-08&lt;/span&gt;&lt;span class=&quot;bullet&quot;&gt;-23&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;08&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;38&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;49&lt;/span&gt; +&lt;span class=&quot;number&quot;&gt;0800&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;comments:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加入腾讯公益的404页面：&lt;/p&gt;
+  &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;http://www.qq.com/404/search_children.js&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;自定义导航&quot;&gt;&lt;a href=&quot;#自定义导航&quot; class=&quot;headerlink&quot; title=&quot;自定义导航&quot;&gt;&lt;/a&gt;自定义导航&lt;/h2&gt;&lt;p&gt;添加一个aboutme的导航&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;先执行&lt;code&gt;rake new_page[aboutme]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;再在\source_includes\custom目录下的navigation.html中添加一个导航:&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/aboutme&amp;quot;&amp;gt;AboutMe&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;6-安装使用主题&quot;&gt;&lt;a href=&quot;#6-安装使用主题&quot; class=&quot;headerlink&quot; title=&quot;6.安装使用主题&quot;&gt;&lt;/a&gt;6.安装使用主题&lt;/h1&gt;&lt;h2 id=&quot;到Github寻找主题&quot;&gt;&lt;a href=&quot;#到Github寻找主题&quot; class=&quot;headerlink&quot; title=&quot;到Github寻找主题&quot;&gt;&lt;/a&gt;到Github寻找主题&lt;/h2&gt;&lt;h2 id=&quot;安装主题&quot;&gt;&lt;a href=&quot;#安装主题&quot; class=&quot;headerlink&quot; title=&quot;安装主题&quot;&gt;&lt;/a&gt;安装主题&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;rake install[‘themename’]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;重新生成&quot;&gt;&lt;a href=&quot;#重新生成&quot; class=&quot;headerlink&quot; title=&quot;重新生成&quot;&gt;&lt;/a&gt;重新生成&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;rake generate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;注意点：安装主题一定要做好备份操作&quot;&gt;&lt;a href=&quot;#注意点：安装主题一定要做好备份操作&quot; class=&quot;headerlink&quot; title=&quot;注意点：安装主题一定要做好备份操作&quot;&gt;&lt;/a&gt;注意点：安装主题一定要做好备份操作&lt;/h2&gt;&lt;p&gt;安装主题会导致之前修改的模板之类的全部被覆盖消失&lt;br&gt;所以必须做好备份操作 &lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;7-自定义网站域名&quot;&gt;&lt;a href=&quot;#7-自定义网站域名&quot; class=&quot;headerlink&quot; title=&quot;7.自定义网站域名&quot;&gt;&lt;/a&gt;7.自定义网站域名&lt;/h1&gt;&lt;h2 id=&quot;在github上绑定自定义域名&quot;&gt;&lt;a href=&quot;#在github上绑定自定义域名&quot; class=&quot;headerlink&quot; title=&quot;在github上绑定自定义域名&quot;&gt;&lt;/a&gt;在github上绑定自定义域名&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建source/CNAME文件并指定域名:&lt;/p&gt;
+  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;xxxx.com&#39;&lt;/span&gt;  &amp;gt;&amp;gt; &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt;/CNAME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;OR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;www.xxxx.com&#39;&lt;/span&gt;  &amp;gt;&amp;gt; &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt;/CNAME&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;解析域名至github&quot;&gt;&lt;a href=&quot;#解析域名至github&quot; class=&quot;headerlink&quot; title=&quot;解析域名至github&quot;&gt;&lt;/a&gt;解析域名至github&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用的是子域名&lt;/p&gt;
+&lt;p&gt;  创建一个CNAME 指向 username.github.io&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用的是顶级域名&lt;/p&gt;
+&lt;p&gt;  使用A记录，指向192.30.252.153（154）【github.io的地址】&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+       &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;1-Octopress简介&quot;&gt;&lt;a href=&quot;#1-Octopress简介&quot; class=&quot;headerlink&quot; title=&quot;1.Octopress简介&quot;&gt;&lt;/a&gt;1.Octopress简介&lt;/h1&gt;&lt;h2 id=&quot;基础
+    
+    </summary>
+    
+    
+      <category term="搭建网站" scheme="http://guxuewu.com/tags/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AndroidUniversalImageLoader使用详解</title>
+    <link href="http://guxuewu.com/2015/08/26/AndroidUniversalImageLoader%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://guxuewu.com/2015/08/26/AndroidUniversalImageLoader使用详解/</id>
+    <published>2015-08-26T08:36:48.000Z</published>
+    <updated>2016-07-25T13:32:13.257Z</updated>
+    
+    <content type="html"> &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;个性的ImageLoader配置&quot;&gt;&lt;a href=&quot;#个性的ImageLoader配置&quot; class=&quot;headerlink&quot; title=&quot;个性的ImageLoader配置&quot;&gt;&lt;/a&gt;个性的ImageLoader配置&lt;/h1&gt;&lt;h2 id=&quot;在哪儿配置以及如何配置&quot;&gt;&lt;a href=&quot;#在哪儿配置以及如何配置&quot; class=&quot;headerlink&quot; title=&quot;在哪儿配置以及如何配置&quot;&gt;&lt;/a&gt;在哪儿配置以及如何配置&lt;/h2&gt;&lt;p&gt;一般会在自己的Application子类的onCreate（）方法中对ImageLoader进行配置&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;ImageLoaderConfiguration各属性解释&quot;&gt;&lt;a href=&quot;#ImageLoaderConfiguration各属性解释&quot; class=&quot;headerlink&quot; title=&quot;ImageLoaderConfiguration各属性解释&quot;&gt;&lt;/a&gt;ImageLoaderConfiguration各属性解释&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;偷懒点可以直接使用缺省的配置ImageLoaderConfiguration:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ImageLoaderConfiguration configuration = ImageLoaderConfiguration.createDefault(this);&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;也可以自定义ImageLoaderConfiguration(ImageLoaderConfiguration类Field详解)：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;int maxImageWidthForMemoryCache/maxImageHeightForMemoryCache&lt;/strong&gt;:内存缓存图片的最大宽高      [对应Builder中设置方法：memoryCacheExtraOptions(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;int maxImageWidthForDiskCache/maxImageHeightForDiskCache&lt;/strong&gt;:磁盘缓存图片的最大宽高[对应Builder中设置方法：discCacheExtraOptions(…)/diskCacheExtraOptions(…)]; &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BitmapProcessor  processorForDiskCache&lt;/strong&gt;:图片处理器，负责从磁盘缓存读取或写入前对图片进行处理    [对应Builder中设置方法：discCacheExtraOptions(…)/diskCacheExtraOptions(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Executor taskExecutor&lt;/strong&gt;:缓存线程池[对应Builder中设置方法：taskExecutor(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Executor taskExecutorForCachedImages&lt;/strong&gt;:下载缓存图片的线程池    [对应Builder中设置方法：taskExecutorForCachedImages(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boolean customExecutor&lt;/strong&gt;:是否自定义线程池    [默认值：false];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boolean customExecutorForCachedImages&lt;/strong&gt;:是否自定义下载缓存图片的线程池    [默认值：false];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Int threadPoolSize&lt;/strong&gt;:线程池数[对应Builder中设置方法：threadPoolSize(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Int threadPriority&lt;/strong&gt;:线程优先级    [对应Builder中设置方法：threadPriority(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QueueProcessingType tasksProcessingType&lt;/strong&gt;:片下载和显示的工作队列排序    [对应Builder中设置方法：tasksProcessingOrder(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MemoryCache memoryCache&lt;/strong&gt;:指定内存缓存的实现[对应Builder中设置方法：memoryCache(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DiskCache diskCache&lt;/strong&gt;:指定磁盘缓存的实现    [对应Builder中设置方法：discCache(…)/diskCache(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageDownloader downloader&lt;/strong&gt;:图片下载器，负责从图片的各个来源获取输入流    [对应Builder中设置方法：imageDownloader(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageDecoder decoder&lt;/strong&gt;:图片解码器，负责将图片输入流InputStream转换为Bitmap对象    [对应Builder中设置方法：imageDecoder(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DisplayImageOptions defaultDisplayImageOptions&lt;/strong&gt;:缺省的图片显示的配置项    [对应Builder中设置方法：defaultDisplayImageOptions(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageDownloader networkDeniedDownloader&lt;/strong&gt;:不允许访问网络的图片下载器    [默认值，无法设置：networkDeniedDownloader = new NetworkDeniedImageDownloader(downloader)];    &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageDownloader slowNetworkDownloader&lt;/strong&gt;:慢网络情况下的图片下载器    [默认值，无法设置：slowNetworkDownloader = new SlowNetworkImageDownloader(downloader)];    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;DisplayImageOptions各属性解释&quot;&gt;&lt;a href=&quot;#DisplayImageOptions各属性解释&quot; class=&quot;headerlink&quot; title=&quot;DisplayImageOptions各属性解释&quot;&gt;&lt;/a&gt;DisplayImageOptions各属性解释&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;创建默认的DisplayImageOptions:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;DisplayImageOptions option_0 = DisplayImageOptions.createSimple();&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;也可以自定义DisplayImageOptions(DisplayImageOptions类Field详解):&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;int imageResOnLoading/Drawable imageOnLoading&lt;/strong&gt;:图片下载期间显示的图片[Builder中设置的方法:showStubImage(…)/showImageOnLoading(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;int imageResForEmptyUri/Drawable imageForEmptyUri&lt;/strong&gt;:空uri时的占位图片[Builder中设置的方法:showImageForEmptyUri(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;int imageResOnFail/Drawable imageOnFail&lt;/strong&gt;:图片下载失败时展示图片[Builder中设置的方法:showImageOnFail(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean resetViewBeforeLoading&lt;/strong&gt;:在加载前是否重置[Builder中设置的方法:resetViewBeforeLoading()/resetViewBeforeLoading(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean cacheInMemory&lt;/strong&gt;:是否启用内存缓存[Builder中设置的方法:cacheInMemory()/cacheInMemory(…)]; &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean cacheOnDisk&lt;/strong&gt;:是否启用磁盘缓存[Builder中设置的方法:cacheOnDisc()/cacheOnDisc(…)/cacheOnDisk(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageScaleType imageScaleType&lt;/strong&gt;:图片的缩放类型[Builder中设置的方法:imageScaleType(ImageScaleType imageScaleTy];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Options decodingOptions&lt;/strong&gt;:为BitmapFactory.Options，用于BitmapFactory.decodeStream(imageStream, null, decodingOptions)得到图片尺寸等信息[Builder中设置的方法:bitmapConfig(Bitmap.Config bitmapConfig)/decodingOptions(Options decodingOptions)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;int delayBeforeLoading&lt;/strong&gt;:设置在开始加载前的延迟时间，单位为毫秒[Builder中设置的方法:delayBeforeLoading(int delayInMillis)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean considerExifParams&lt;/strong&gt;:是否考虑图片的 EXIF 信息（括机身、镜头型号、拍摄时间、相机快门次数）[Builder中设置的方法:considerExifParams(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Object extraForDownloader&lt;/strong&gt;:下载器需要的辅助信息[Builder中设置的方法:extraForDownloader(Object extra)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BitmapProcessor preProcessor&lt;/strong&gt;:缓存在内存之前的处理程序[Builder中设置的方法:preProcessor(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BitmapProcessor postProcessor&lt;/strong&gt;:缓存在内存之后的处理程序[Builder中设置的方法:postProcessor(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BitmapDisplayer displayer&lt;/strong&gt;:图片的显示方式[Builder中设置的方法:displayer(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Handler handler:handler&lt;/strong&gt;:对象,消息处理[Builder中设置的方法:handler(…)];&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean isSyncLoading&lt;/strong&gt;:是否同步加载[Builder中设置的方法:syncLoading(…)];&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;自定义配置总结：&quot;&gt;&lt;a href=&quot;#自定义配置总结：&quot; class=&quot;headerlink&quot; title=&quot;自定义配置总结：&quot;&gt;&lt;/a&gt;自定义配置总结：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Imageloader提供的缺省的ImageLoaderConfiguration和缺省的DisplayImageOptions已经基本可以满足我们正常的需求，如果没有特殊的需要可以不用再修改；&lt;/li&gt;
+&lt;li&gt;ImageLoaderConfiguration的Builder中的diskCache()方法, diskCacheSize() 方法以及diskCacheFileCount（）方法彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了；&lt;/li&gt;
+&lt;li&gt;ImageLoaderConfiguration的Builder中的diskCache()方法 和 diskCacheFileNameGenerator()方法彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了；&lt;/li&gt;
+&lt;li&gt;ImageLoaderConfiguration的Builder中的memoryCache() 方法和memoryCacheSize()方法 彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;补充理解：三大关键对象关系&quot;&gt;&lt;a href=&quot;#补充理解：三大关键对象关系&quot; class=&quot;headerlink&quot; title=&quot;补充理解：三大关键对象关系&quot;&gt;&lt;/a&gt;补充理解：三大关键对象关系&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ImageLoader：&lt;/strong&gt;&lt;br&gt;具体下载图片，缓存图片，显示图片的具体执行类，它有两个具体的方法displayImage(…)、loadImage(…)，但是其实最终他们的实现都是displayImage(…);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ImageLoaderConfiguration：&lt;/strong&gt;&lt;br&gt;图片缓存的全局配置，主要有线程类、缓存大小、磁盘大小、图片下载与解析、日志方面的配置;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DisplayImageOptions：&lt;/strong&gt;&lt;br&gt;指导每一个Imageloader根据网络图片的状态（空白、下载错误、正在下载）显示对应的图片，是否将缓存加载到磁盘上，下载完后对图片进行怎么样的处理;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;三者关系的形象比喻：&lt;/strong&gt;&lt;br&gt;这三者就像是公司执行机构、公司规章制度以及客户需求,ImageLoaderConfiguration就像一个公司的规章制度，里面规定了一个公司全局性的性质；ImageLoader就像是一个公司的执行机构，会给客户创造出客户想要的产品；DisplayImageOptions就像是每一个客户的具体需求，公司执行结构会根据这个需求最终决定如何生产那个产品。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;各式缓存方式任你选择&quot;&gt;&lt;a href=&quot;#各式缓存方式任你选择&quot; class=&quot;headerlink&quot; title=&quot;各式缓存方式任你选择&quot;&gt;&lt;/a&gt;各式缓存方式任你选择&lt;/h1&gt;&lt;h2 id=&quot;DiskCache-磁盘缓存&quot;&gt;&lt;a href=&quot;#DiskCache-磁盘缓存&quot; class=&quot;headerlink&quot; title=&quot;DiskCache 磁盘缓存&quot;&gt;&lt;/a&gt;DiskCache 磁盘缓存&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;UnlimitedDiscCache不限制缓存大小；&lt;/li&gt;
+&lt;li&gt;UnlimitedDiscCache很简单它只是简单的继承了BaseDiscCache并未对BaseDiscCache做任何扩展；&lt;/li&gt;
+&lt;li&gt;LimitedAgeDiscCache限制缓存时间；&lt;/li&gt;
+&lt;li&gt;LimitedAgeDiscCache该类实现了在缓存中删除被加载超过规定时间的文件：满足以下条件的时候就从缓存中删除文件：系统当前时间-文件的最新修改时间 &amp;gt; maxFileAge；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;MemoryCache内存缓存&quot;&gt;&lt;a href=&quot;#MemoryCache内存缓存&quot; class=&quot;headerlink&quot; title=&quot;MemoryCache内存缓存&quot;&gt;&lt;/a&gt;MemoryCache内存缓存&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;通过实现接口MemoryCacheAware &lt;string,bitmap&gt;来实现自己的缓存&lt;/string,bitmap&gt;&lt;/li&gt;
+&lt;li&gt;UsingFreqLimitedCache (最少被用到的对象会被删除)&lt;/li&gt;
+&lt;li&gt;UsingAgeLimitedCache (最早被添加的对象会被删除)&lt;/li&gt;
+&lt;li&gt;LargestLimitedCache (空间占用最大的对象会被删除)&lt;/li&gt;
+&lt;li&gt;FIFOLimitedCache (根据先进先出的原则上删除多余对象)&lt;h2 id=&quot;不要忘记缓存的清理&quot;&gt;&lt;a href=&quot;#不要忘记缓存的清理&quot; class=&quot;headerlink&quot; title=&quot;不要忘记缓存的清理&quot;&gt;&lt;/a&gt;不要忘记缓存的清理&lt;/h2&gt;一般要在整个应用结束的时候调用下面两个方法，分别情况内存缓存和磁盘缓存，提供用户体验 ：&lt;/li&gt;
+&lt;li&gt;imageLoader.clearMemoryCache();  &lt;/li&gt;
+&lt;li&gt;imageLoader.clearDiskCache(); &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;网络图片获取想停就停&quot;&gt;&lt;a href=&quot;#网络图片获取想停就停&quot; class=&quot;headerlink&quot; title=&quot;网络图片获取想停就停&quot;&gt;&lt;/a&gt;网络图片获取想停就停&lt;/h1&gt;&lt;p&gt;主要是用于GirdView,ListView加载图片的情况，因为这两个控件展示图片的时候会出现滑动操作，为了更友好的用户体验，可以设置GirdView,ListView的setOnScrollListener监听事件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;listView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling));    &lt;/li&gt;
+&lt;li&gt;gridView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling)); &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;pauseOnScroll—是否在滑动过程中停止加载图片&lt;br&gt;pauseOnFling—是否在快速猛的滑动中停止加载图片&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;图像大小由你控制&quot;&gt;&lt;a href=&quot;#图像大小由你控制&quot; class=&quot;headerlink&quot; title=&quot;图像大小由你控制&quot;&gt;&lt;/a&gt;图像大小由你控制&lt;/h1&gt;&lt;p&gt;在ImageLoadingListener接口有以下几个状态监听，用于监听图片下载的不同状态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;onLoadingStarted(String imageUri, View view)；&lt;/li&gt;
+&lt;li&gt;onLoadingFailed(String imageUri, View view, FailReason failReason)；&lt;/li&gt;
+&lt;li&gt;onLoadingComplete(String imageUri, View view, Bitmap loadedImage)：&lt;br&gt;在图片加载成功之后，可以对获取到的Bitmap进行各种大小设置，图形裁剪操作以及动画效果添加等，&lt;br&gt;最后再加图片展示到控件上。&lt;/li&gt;
+&lt;li&gt;onLoadingCancelled(String imageUri, View view)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;注意事项&quot;&gt;&lt;a href=&quot;#注意事项&quot; class=&quot;headerlink&quot; title=&quot;注意事项&quot;&gt;&lt;/a&gt;注意事项&lt;/h1&gt;&lt;p&gt;使用了ImageLoader可以有效的避免程序加载图片出现OOM的情况，但是也不是百分之百的屏蔽这个问题，在有的时候，还是会出现，这个时候，我们 可以从下面几个思路去优化我们的ImageLoader&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;减少配置之中线程池的大小，(.threadPoolSize).推荐1-5；&lt;/li&gt;
+&lt;li&gt;使用.bitmapConfig(Bitmap.config.RGB_565)代替ARGB_8888;&lt;/li&gt;
+&lt;li&gt;使用.imageScaleType(ImageScaleType.IN_SAMPLE_INT)或者 try.imageScaleType(ImageScaleType.EXACTLY)；&lt;/li&gt;
+&lt;li&gt;避免使用RoundedBitmapDisplayer.他会创建新的ARGB_8888格式的Bitmap对象；&lt;/li&gt;
+&lt;li&gt;使用.memoryCache(new WeakMemoryCache())，不要使用.cacheInMemory();&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;下载地址&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/nostra13/Android-Universal-Image-Loader&quot; title=&quot;https://github.com/nostra13/Android-Universal-Image-Loader&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/nostra13/Android-Universal-Image-Loader&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+       &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;个性的ImageLoader配置&quot;&gt;&lt;a href=&quot;#个性的ImageLoader配置&quot; class=&quot;headerlink&quot; title=&quot;个性的ImageLoader配置&quot;&gt;&lt;/a&gt;个性的ImageLoader配置&lt;/h
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://guxuewu.com/tags/Android/"/>
+    
+      <category term="图片加载" scheme="http://guxuewu.com/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   

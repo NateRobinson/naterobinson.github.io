@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>AndroidUniversalImageLoader使用详解 | NateRobinson's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">AndroidUniversalImageLoader使用详解</h1><a id="logo" href="/.">NateRobinson's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">AndroidUniversalImageLoader使用详解</h1><div class="post-meta">Aug 26, 2015<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/08/26/AndroidUniversalImageLoader使用详解/" href="/2015/08/26/AndroidUniversalImageLoader使用详解/#comments" class="ds-thread-count"></a><div class="post-content"> <a id="more"></a>
+<h1 id="个性的ImageLoader配置"><a href="#个性的ImageLoader配置" class="headerlink" title="个性的ImageLoader配置"></a>个性的ImageLoader配置</h1><h2 id="在哪儿配置以及如何配置"><a href="#在哪儿配置以及如何配置" class="headerlink" title="在哪儿配置以及如何配置"></a>在哪儿配置以及如何配置</h2><p>一般会在自己的Application子类的onCreate（）方法中对ImageLoader进行配置</p>
+<hr>
+<h3 id="ImageLoaderConfiguration各属性解释"><a href="#ImageLoaderConfiguration各属性解释" class="headerlink" title="ImageLoaderConfiguration各属性解释"></a>ImageLoaderConfiguration各属性解释</h3><p><strong><em>偷懒点可以直接使用缺省的配置ImageLoaderConfiguration:</em></strong></p>
+<p>ImageLoaderConfiguration configuration = ImageLoaderConfiguration.createDefault(this);</p>
+<p><strong><em>也可以自定义ImageLoaderConfiguration(ImageLoaderConfiguration类Field详解)：</em></strong></p>
+<ul>
+<li><strong>int maxImageWidthForMemoryCache/maxImageHeightForMemoryCache</strong>:内存缓存图片的最大宽高      [对应Builder中设置方法：memoryCacheExtraOptions(…)];</li>
+<li><strong>int maxImageWidthForDiskCache/maxImageHeightForDiskCache</strong>:磁盘缓存图片的最大宽高[对应Builder中设置方法：discCacheExtraOptions(…)/diskCacheExtraOptions(…)]; </li>
+<li><strong>BitmapProcessor  processorForDiskCache</strong>:图片处理器，负责从磁盘缓存读取或写入前对图片进行处理    [对应Builder中设置方法：discCacheExtraOptions(…)/diskCacheExtraOptions(…)];</li>
+<li><strong>Executor taskExecutor</strong>:缓存线程池[对应Builder中设置方法：taskExecutor(…)];</li>
+<li><strong>Executor taskExecutorForCachedImages</strong>:下载缓存图片的线程池    [对应Builder中设置方法：taskExecutorForCachedImages(…)];</li>
+<li><strong>Boolean customExecutor</strong>:是否自定义线程池    [默认值：false];</li>
+<li><strong>Boolean customExecutorForCachedImages</strong>:是否自定义下载缓存图片的线程池    [默认值：false];</li>
+<li><strong>Int threadPoolSize</strong>:线程池数[对应Builder中设置方法：threadPoolSize(…)];</li>
+<li><strong>Int threadPriority</strong>:线程优先级    [对应Builder中设置方法：threadPriority(…)];</li>
+<li><strong>QueueProcessingType tasksProcessingType</strong>:片下载和显示的工作队列排序    [对应Builder中设置方法：tasksProcessingOrder(…)];</li>
+<li><strong>MemoryCache memoryCache</strong>:指定内存缓存的实现[对应Builder中设置方法：memoryCache(…)];</li>
+<li><strong>DiskCache diskCache</strong>:指定磁盘缓存的实现    [对应Builder中设置方法：discCache(…)/diskCache(…)];</li>
+<li><strong>ImageDownloader downloader</strong>:图片下载器，负责从图片的各个来源获取输入流    [对应Builder中设置方法：imageDownloader(…)];</li>
+<li><strong>ImageDecoder decoder</strong>:图片解码器，负责将图片输入流InputStream转换为Bitmap对象    [对应Builder中设置方法：imageDecoder(…)];</li>
+<li><strong>DisplayImageOptions defaultDisplayImageOptions</strong>:缺省的图片显示的配置项    [对应Builder中设置方法：defaultDisplayImageOptions(…)];</li>
+<li><strong>ImageDownloader networkDeniedDownloader</strong>:不允许访问网络的图片下载器    [默认值，无法设置：networkDeniedDownloader = new NetworkDeniedImageDownloader(downloader)];    </li>
+<li><strong>ImageDownloader slowNetworkDownloader</strong>:慢网络情况下的图片下载器    [默认值，无法设置：slowNetworkDownloader = new SlowNetworkImageDownloader(downloader)];    </li>
+</ul>
+<hr>
+<h3 id="DisplayImageOptions各属性解释"><a href="#DisplayImageOptions各属性解释" class="headerlink" title="DisplayImageOptions各属性解释"></a>DisplayImageOptions各属性解释</h3><p><strong><em>创建默认的DisplayImageOptions:</em></strong></p>
+<p>DisplayImageOptions option_0 = DisplayImageOptions.createSimple();</p>
+<p><strong><em>也可以自定义DisplayImageOptions(DisplayImageOptions类Field详解):</em></strong></p>
+<ul>
+<li><strong>int imageResOnLoading/Drawable imageOnLoading</strong>:图片下载期间显示的图片[Builder中设置的方法:showStubImage(…)/showImageOnLoading(…)];</li>
+<li><strong>int imageResForEmptyUri/Drawable imageForEmptyUri</strong>:空uri时的占位图片[Builder中设置的方法:showImageForEmptyUri(…)];</li>
+<li><strong>int imageResOnFail/Drawable imageOnFail</strong>:图片下载失败时展示图片[Builder中设置的方法:showImageOnFail(…)];</li>
+<li><strong>boolean resetViewBeforeLoading</strong>:在加载前是否重置[Builder中设置的方法:resetViewBeforeLoading()/resetViewBeforeLoading(…)];</li>
+<li><strong>boolean cacheInMemory</strong>:是否启用内存缓存[Builder中设置的方法:cacheInMemory()/cacheInMemory(…)]; </li>
+<li><strong>boolean cacheOnDisk</strong>:是否启用磁盘缓存[Builder中设置的方法:cacheOnDisc()/cacheOnDisc(…)/cacheOnDisk(…)];</li>
+<li><strong>ImageScaleType imageScaleType</strong>:图片的缩放类型[Builder中设置的方法:imageScaleType(ImageScaleType imageScaleTy];</li>
+<li><strong>Options decodingOptions</strong>:为BitmapFactory.Options，用于BitmapFactory.decodeStream(imageStream, null, decodingOptions)得到图片尺寸等信息[Builder中设置的方法:bitmapConfig(Bitmap.Config bitmapConfig)/decodingOptions(Options decodingOptions)];</li>
+<li><strong>int delayBeforeLoading</strong>:设置在开始加载前的延迟时间，单位为毫秒[Builder中设置的方法:delayBeforeLoading(int delayInMillis)];</li>
+<li><strong>boolean considerExifParams</strong>:是否考虑图片的 EXIF 信息（括机身、镜头型号、拍摄时间、相机快门次数）[Builder中设置的方法:considerExifParams(…)];</li>
+<li><strong>Object extraForDownloader</strong>:下载器需要的辅助信息[Builder中设置的方法:extraForDownloader(Object extra)];</li>
+<li><strong>BitmapProcessor preProcessor</strong>:缓存在内存之前的处理程序[Builder中设置的方法:preProcessor(…)];</li>
+<li><strong>BitmapProcessor postProcessor</strong>:缓存在内存之后的处理程序[Builder中设置的方法:postProcessor(…)];</li>
+<li><strong>BitmapDisplayer displayer</strong>:图片的显示方式[Builder中设置的方法:displayer(…)];</li>
+<li><strong>Handler handler:handler</strong>:对象,消息处理[Builder中设置的方法:handler(…)];</li>
+<li><strong>boolean isSyncLoading</strong>:是否同步加载[Builder中设置的方法:syncLoading(…)];</li>
+</ul>
+<hr>
+<h3 id="自定义配置总结："><a href="#自定义配置总结：" class="headerlink" title="自定义配置总结："></a>自定义配置总结：</h3><ul>
+<li>Imageloader提供的缺省的ImageLoaderConfiguration和缺省的DisplayImageOptions已经基本可以满足我们正常的需求，如果没有特殊的需要可以不用再修改；</li>
+<li>ImageLoaderConfiguration的Builder中的diskCache()方法, diskCacheSize() 方法以及diskCacheFileCount（）方法彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了；</li>
+<li>ImageLoaderConfiguration的Builder中的diskCache()方法 和 diskCacheFileNameGenerator()方法彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了；</li>
+<li>ImageLoaderConfiguration的Builder中的memoryCache() 方法和memoryCacheSize()方法 彼此功能重叠的，如果设置了其中一个，就不要再设置其他的了。</li>
+</ul>
+<hr>
+<h2 id="补充理解：三大关键对象关系"><a href="#补充理解：三大关键对象关系" class="headerlink" title="补充理解：三大关键对象关系"></a>补充理解：三大关键对象关系</h2><ul>
+<li><strong>ImageLoader：</strong><br>具体下载图片，缓存图片，显示图片的具体执行类，它有两个具体的方法displayImage(…)、loadImage(…)，但是其实最终他们的实现都是displayImage(…);</li>
+<li><strong>ImageLoaderConfiguration：</strong><br>图片缓存的全局配置，主要有线程类、缓存大小、磁盘大小、图片下载与解析、日志方面的配置;</li>
+<li><strong>DisplayImageOptions：</strong><br>指导每一个Imageloader根据网络图片的状态（空白、下载错误、正在下载）显示对应的图片，是否将缓存加载到磁盘上，下载完后对图片进行怎么样的处理;</li>
+<li><strong>三者关系的形象比喻：</strong><br>这三者就像是公司执行机构、公司规章制度以及客户需求,ImageLoaderConfiguration就像一个公司的规章制度，里面规定了一个公司全局性的性质；ImageLoader就像是一个公司的执行机构，会给客户创造出客户想要的产品；DisplayImageOptions就像是每一个客户的具体需求，公司执行结构会根据这个需求最终决定如何生产那个产品。</li>
+</ul>
+<hr>
+<h1 id="各式缓存方式任你选择"><a href="#各式缓存方式任你选择" class="headerlink" title="各式缓存方式任你选择"></a>各式缓存方式任你选择</h1><h2 id="DiskCache-磁盘缓存"><a href="#DiskCache-磁盘缓存" class="headerlink" title="DiskCache 磁盘缓存"></a>DiskCache 磁盘缓存</h2><ul>
+<li>UnlimitedDiscCache不限制缓存大小；</li>
+<li>UnlimitedDiscCache很简单它只是简单的继承了BaseDiscCache并未对BaseDiscCache做任何扩展；</li>
+<li>LimitedAgeDiscCache限制缓存时间；</li>
+<li>LimitedAgeDiscCache该类实现了在缓存中删除被加载超过规定时间的文件：满足以下条件的时候就从缓存中删除文件：系统当前时间-文件的最新修改时间 &gt; maxFileAge；</li>
+</ul>
+<h2 id="MemoryCache内存缓存"><a href="#MemoryCache内存缓存" class="headerlink" title="MemoryCache内存缓存"></a>MemoryCache内存缓存</h2><ul>
+<li>通过实现接口MemoryCacheAware <string,bitmap>来实现自己的缓存</string,bitmap></li>
+<li>UsingFreqLimitedCache (最少被用到的对象会被删除)</li>
+<li>UsingAgeLimitedCache (最早被添加的对象会被删除)</li>
+<li>LargestLimitedCache (空间占用最大的对象会被删除)</li>
+<li>FIFOLimitedCache (根据先进先出的原则上删除多余对象)<h2 id="不要忘记缓存的清理"><a href="#不要忘记缓存的清理" class="headerlink" title="不要忘记缓存的清理"></a>不要忘记缓存的清理</h2>一般要在整个应用结束的时候调用下面两个方法，分别情况内存缓存和磁盘缓存，提供用户体验 ：</li>
+<li>imageLoader.clearMemoryCache();  </li>
+<li>imageLoader.clearDiskCache(); </li>
+</ul>
+<hr>
+<h1 id="网络图片获取想停就停"><a href="#网络图片获取想停就停" class="headerlink" title="网络图片获取想停就停"></a>网络图片获取想停就停</h1><p>主要是用于GirdView,ListView加载图片的情况，因为这两个控件展示图片的时候会出现滑动操作，为了更友好的用户体验，可以设置GirdView,ListView的setOnScrollListener监听事件。</p>
+<ul>
+<li>listView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling));    </li>
+<li>gridView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling)); </li>
+</ul>
+<p>pauseOnScroll—是否在滑动过程中停止加载图片<br>pauseOnFling—是否在快速猛的滑动中停止加载图片</p>
+<hr>
+<h1 id="图像大小由你控制"><a href="#图像大小由你控制" class="headerlink" title="图像大小由你控制"></a>图像大小由你控制</h1><p>在ImageLoadingListener接口有以下几个状态监听，用于监听图片下载的不同状态：</p>
+<ul>
+<li>onLoadingStarted(String imageUri, View view)；</li>
+<li>onLoadingFailed(String imageUri, View view, FailReason failReason)；</li>
+<li>onLoadingComplete(String imageUri, View view, Bitmap loadedImage)：<br>在图片加载成功之后，可以对获取到的Bitmap进行各种大小设置，图形裁剪操作以及动画效果添加等，<br>最后再加图片展示到控件上。</li>
+<li>onLoadingCancelled(String imageUri, View view)。</li>
+</ul>
+<hr>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>使用了ImageLoader可以有效的避免程序加载图片出现OOM的情况，但是也不是百分之百的屏蔽这个问题，在有的时候，还是会出现，这个时候，我们 可以从下面几个思路去优化我们的ImageLoader</p>
+<ul>
+<li>减少配置之中线程池的大小，(.threadPoolSize).推荐1-5；</li>
+<li>使用.bitmapConfig(Bitmap.config.RGB_565)代替ARGB_8888;</li>
+<li>使用.imageScaleType(ImageScaleType.IN_SAMPLE_INT)或者 try.imageScaleType(ImageScaleType.EXACTLY)；</li>
+<li>避免使用RoundedBitmapDisplayer.他会创建新的ARGB_8888格式的Bitmap对象；</li>
+<li>使用.memoryCache(new WeakMemoryCache())，不要使用.cacheInMemory();</li>
+</ul>
+<hr>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p><a href="https://github.com/nostra13/Android-Universal-Image-Loader" title="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">https://github.com/nostra13/Android-Universal-Image-Loader</a></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://guxuewu.com/2015/08/26/AndroidUniversalImageLoader使用详解/" data-id="cir23habc0005csn9vbtd9f8x" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Android/">Android</a><a href="/tags/图片加载/">图片加载</a></div><div class="post-nav"><a href="/2015/08/27/使用Octopress搭建静态博客网站/" class="pre">使用Octopress搭建静态博客网站</a></div><div data-thread-key="2015/08/26/AndroidUniversalImageLoader使用详解/" data-title="AndroidUniversalImageLoader使用详解" data-url="http://guxuewu.com/2015/08/26/AndroidUniversalImageLoader使用详解/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/08/26/AndroidUniversalImageLoader使用详解/" data-title="AndroidUniversalImageLoader使用详解" data-url="http://guxuewu.com/2015/08/26/AndroidUniversalImageLoader使用详解/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://guxuewu.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/图片加载/" style="font-size: 15px;">图片加载</a> <a href="/tags/搭建网站/" style="font-size: 15px;">搭建网站</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/卡片翻页效果的Viewpager-CardStackViewpager/">卡片翻页效果的Viewpager-CardStackViewpager</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/模仿58到家百度地图地址选择效果/">模仿58到家百度地图地址选择效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/基于Bmob开源APP-兄弟连/">基于Bmob开源APP-兄弟连</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/25/一个基于MVP模式的应用基础框架/">一个基于MVP模式的应用基础框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/27/使用Octopress搭建静态博客网站/">使用Octopress搭建静态博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/26/AndroidUniversalImageLoader使用详解/">AndroidUniversalImageLoader使用详解</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">NateRobinson's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'naterobinson'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

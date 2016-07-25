@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>基于Bmob开源APP-兄弟连 | NateRobinson's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">基于Bmob开源APP-兄弟连</h1><a id="logo" href="/.">NateRobinson's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">基于Bmob开源APP-兄弟连</h1><div class="post-meta">Feb 25, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/02/25/基于Bmob开源APP-兄弟连/" href="/2016/02/25/基于Bmob开源APP-兄弟连/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-后台的选择："><span class="toc-number">1.</span> <span class="toc-text">一 后台的选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-App主题颜色配置选择："><span class="toc-number">2.</span> <span class="toc-text">二 App主题颜色配置选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-App各种icon图标的选择："><span class="toc-number">3.</span> <span class="toc-text">三 App各种icon图标的选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-APP几个模块分析："><span class="toc-number">4.</span> <span class="toc-text">四 APP几个模块分析：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-引用的开源库介绍："><span class="toc-number">5.</span> <span class="toc-text">五 引用的开源库介绍：</span></a></li></ol></div></div><div class="post-content"><blockquote>
+<p>兄弟连是自己突发的一个点子，因为现在的社区类APP十分火爆，打着各种各样旗号的社交APP层出不穷，文采不咋样的我曾为这个APP的主题死了N多脑细胞，最终定成了“兄弟连”,名字也许有点”丑陋“，但是我觉得的确可以用来做为一个社交APP的名字，所以，那就这么定啦。从下面开始 ，就不需要纠结名字了。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="一-后台的选择："><a href="#一-后台的选择：" class="headerlink" title="一 后台的选择："></a>一 后台的选择：</h2><p>一款移动社交APP肯定少不了一个多功能的后台，当时有考虑过喊自己的程序猿小伙伴一起搞这个后台，但是因为时间、和精力的原因，我最终放弃了此想法，因为我发现了一个比之更便捷的方式，使用第三方云后台服务器，经过几重筛选，我选择了Bmob：<a href="http://www.bmob.cn/" title="http://www.bmob.cn/" target="_blank" rel="external">http://www.bmob.cn/</a>，它们官网的口号是：Bmob后端云让移动开发更简单。。。那么就选他家了~</p>
+<h2 id="二-App主题颜色配置选择："><a href="#二-App主题颜色配置选择：" class="headerlink" title="二 App主题颜色配置选择："></a>二 App主题颜色配置选择：</h2><p>这里要向大家推荐一个非常实用的网站了：<a href="http://www.materialpalette.com/teal/light-green" title="http://www.materialpalette.com/teal/light-green" target="_blank" rel="external">http://www.materialpalette.com/teal/light-green</a>，这个网站可以快速的帮大家定制一款APP的主题色，并且可以下载对应的配色方案到本地，对于程序猿们简直一大福利。</p>
+<h2 id="三-App各种icon图标的选择："><a href="#三-App各种icon图标的选择：" class="headerlink" title="三 App各种icon图标的选择："></a>三 App各种icon图标的选择：</h2><p>说到icon，不得不提到阿里巴巴矢量图库：<a href="http://iconfont.cn/repositories" title="http://iconfont.cn/repositories " target="_blank" rel="external">http://iconfont.cn/repositories </a>，这个网站不但适用UI设计师，也同样适用于想独自完成一款App设计的程序猿们，在里面，你可以发掘到任何想要的icon，并且在下载的时候可以设置各种颜色，配合上面的样色配置网站，简直实用到家~</p>
+<h2 id="四-APP几个模块分析："><a href="#四-APP几个模块分析：" class="headerlink" title="四 APP几个模块分析："></a>四 APP几个模块分析：</h2><p><strong>2.1 首页：</strong></p>
+<p>首页采用黄金比例分割的方式，将页面分成了四个部分：兄弟连，好友中心，图片故事，个人中心；<br>并且为四个布局的点击添加了缩放动画效果，使整个页面在简洁的同时又不失酷炫。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/1.png?raw=true" alt="首页图片"></p>
+<p><strong>2.2 兄弟连:</strong></p>
+<p>没有加入过任何兄弟连的时候：会给用户相关友好性的提示。并且点击页面的加号或者右上角的加号之后，会弹出选择对话框。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/2.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/3.png?raw=true" alt="首页图片"></p>
+<p>创建和查找功能的页面尽量做到了简洁，并且为查找设置了热门推荐功能和名称查找功能。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/4.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/5.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/6.png?raw=true" alt="首页图片"></p>
+<p>加入兄弟连过兄弟连之后：这里加入了谷歌自带的SwipeRefreshLayout，通过手势向下拖动，可以进行下拉刷新的操作</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/8.png?raw=true" alt="首页图片"></p>
+<p>点击兄弟连列表，可以进入某一个兄弟连的详情界面，点击成员数目，可以进入成员列表</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/9.png?raw=true" alt="首页图片"></p>
+<p>点击右上角的发帖按钮，可以跳转到发帖界面，进行发帖操作：</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/10.png?raw=true" alt="首页图片"></p>
+<p>发帖成功之后会自动跳转到上一个页面，并做自动刷新操作。点击发的帖子，进入帖子详情界面：在详情页面可以对帖子内容、评论进行查看，并且可以进行收藏、评论的操作。并且点击帖子图片，可以进入图片查看界面。在首页和聊天主页均会有聊天提醒功能。并可以在个人中心设置提醒开关。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/11.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/12.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/13.png?raw=true" alt="首页图片"></p>
+<p><strong>2.3 好友中心：</strong></p>
+<p>好友中心集成了最近聊天消息列表，联系人列表，添加好友入口，新朋友列表入口，附近的人列表入口。联系人页面的搜索为本地搜索功能。短按消息列表可以进入聊天界面，长按聊天列表项，弹出是否删除该聊天对话框。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/14.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/15.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/16.png?raw=true" alt="首页图片"></p>
+<p><strong>2.4 图片故事：</strong></p>
+<p>图片故事这个模块实现了图片即时分享，用户可以在右上角的快速入口进入发布图片故事入口，首页为最近的图片故事列表。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/17.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/18.png?raw=true" alt="首页图片"></p>
+<p><strong>2.5 个人中心：</strong></p>
+<p>个人中心里面有：个人资料，黑名单，接收消息控制，退出账号等功能模块。这块比较复杂的是个人资料界面，里面又集成了性别设置，昵称设置，城市设置功能模块。</p>
+<p><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/19.png?raw=true" alt="首页图片"><br><img src="https://github.com/NateRobinson/XiongDiLian/blob/master/imgs/20.png?raw=true" alt="首页图片"></p>
+<p><strong>2.6 特别模块：</strong></p>
+<p><strong>腾讯Bugly：</strong></p>
+<blockquote>
+<p>整个代码中还集成了腾讯的Bugly：<a href="http://bugly.qq.com/" title="http://bugly.qq.com/" target="_blank" rel="external">http://bugly.qq.com/</a>，Bugly是腾讯内部使用的移动应用崩溃检测服务，同时支持 iOS 和 Android 平台。目前 Bugly 已经对移动开发者开放。移动开发者在自己的  App 中接入 Bugly 的 SDK 后，就能在应用崩溃后获得信息上报。开发者可以通过 Bugly 的网站看到崩溃的概要和详情。崩溃概要包括，崩溃的列表、近日按小时统计趋势、昨天前天的崩溃次数和崩溃率。</p>
+</blockquote>
+<p><strong>百度地图定位：</strong></p>
+<blockquote>
+<p>百度地图：<a href="http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5" title="http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5" target="_blank" rel="external">http://developer.baidu.com/map/index.php?title=%E9%A6%96%E9%A1%B5</a> Android SDK是一套基于Android 2.1及以上版本设备的应用程序接口。 您可以使用该套 SDK开发适用于Android系统移动设备的地图应用，通过调用地图SDK接口，您可以轻松访问百度地图服务和数据，构建功能丰富、交互性强的地图类应用程序。</p>
+</blockquote>
+<h2 id="五-引用的开源库介绍："><a href="#五-引用的开源库介绍：" class="headerlink" title="五 引用的开源库介绍："></a>五 引用的开源库介绍：</h2><p><strong>1.Sweet Alert Dialog</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/pedant/sweet-alert-dialog" title="https://github.com/pedant/sweet-alert-dialog" target="_blank" rel="external">https://github.com/pedant/sweet-alert-dialog</a></p>
+<p>介绍：Android版的SweetAlert，清新文艺，快意灵动的甜心弹框</p>
+</blockquote>
+<p><strong>2.Butter Knife</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/JakeWharton/butterknife" title="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">https://github.com/JakeWharton/butterknife</a></p>
+<p>介绍：Android视图注入库，配合AS的插件使用，简直高效</p>
+</blockquote>
+<p><strong>3.FlycoDialog-Master</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/H07000223/FlycoDialog_Master" title="https://github.com/H07000223/FlycoDialog_Master" target="_blank" rel="external">https://github.com/H07000223/FlycoDialog_Master</a></p>
+<p>介绍：一个强大的Android对话框库,简化自定义对话框.支持2.2+.</p>
+</blockquote>
+<p><strong>4.android-crop</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/jdamcd/android-crop" title="https://github.com/jdamcd/android-crop" target="_blank" rel="external">https://github.com/jdamcd/android-crop</a></p>
+<p>介绍：An Android library project that provides a simple image cropping Activity, based on code from AOSP.</p>
+</blockquote>
+<p><strong>5.google-gson</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/google/gson" title="https://github.com/google/gson" target="_blank" rel="external">https://github.com/google/gson</a></p>
+<p>介绍：Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of. </p>
+</blockquote>
+<p><strong>6.EventBus</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/greenrobot/EventBus" title="https://github.com/greenrobot/EventBus" target="_blank" rel="external">https://github.com/greenrobot/EventBus</a></p>
+<p>介绍：EventBus is publish/subscribe event bus optimized for Android.</p>
+</blockquote>
+<p><strong>7.Material Dialog v1.2.2</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/drakeet/MaterialDialog" title="https://github.com/drakeet/MaterialDialog" target="_blank" rel="external">https://github.com/drakeet/MaterialDialog</a></p>
+<p>介绍：This is an Android library, I call it MaterialDialog. It’s very easy to use. Just new it &amp; call show() method, then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design. I hope that you will like it, and enjoys it. </p>
+</blockquote>
+<p><strong>8.SwitchButton</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/kyleduo/SwitchButton" title="https://github.com/kyleduo/SwitchButton" target="_blank" rel="external">https://github.com/kyleduo/SwitchButton</a></p>
+<p>介绍：This project provides you a convenient way to use and customise a SwitchButton widget in Android. With just resources changed and attrs set, you can create a lifelike SwitchButton of Android 5.0+, iOS, MIUI, or Flyme and so on.</p>
+</blockquote>
+<p><strong>9.Universal Image Loader</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/nostra13/Android-Universal-Image-Loader" title="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">https://github.com/nostra13/Android-Universal-Image-Loader</a></p>
+<p>介绍：Android library #1 on GitHub. UIL aims to provide a powerful, flexible and highly customizable instrument for image loading, caching and displaying. It provides a lot of configuration options and good control over the image loading and caching process.</p>
+</blockquote>
+<p><strong>10.Picasso</strong></p>
+<blockquote>
+<p>地址：<a href="https://github.com/square/picasso" title="https://github.com/square/picasso" target="_blank" rel="external">https://github.com/square/picasso</a></p>
+<p>介绍：A powerful image downloading and caching library for Android.</p>
+</blockquote>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://guxuewu.com/2016/02/25/基于Bmob开源APP-兄弟连/" data-id="cir23habh0008csn9z5g0xyx1" class="article-share-link">分享到</a><div class="tags"><a href="/tags/github/">github</a></div><div class="post-nav"><a href="/2016/04/25/模仿58到家百度地图地址选择效果/" class="pre">模仿58到家百度地图地址选择效果</a><a href="/2016/01/25/一个基于MVP模式的应用基础框架/" class="next">一个基于MVP模式的应用基础框架</a></div><div data-thread-key="2016/02/25/基于Bmob开源APP-兄弟连/" data-title="基于Bmob开源APP-兄弟连" data-url="http://guxuewu.com/2016/02/25/基于Bmob开源APP-兄弟连/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/02/25/基于Bmob开源APP-兄弟连/" data-title="基于Bmob开源APP-兄弟连" data-url="http://guxuewu.com/2016/02/25/基于Bmob开源APP-兄弟连/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://guxuewu.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/图片加载/" style="font-size: 15px;">图片加载</a> <a href="/tags/搭建网站/" style="font-size: 15px;">搭建网站</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/卡片翻页效果的Viewpager-CardStackViewpager/">卡片翻页效果的Viewpager-CardStackViewpager</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/模仿58到家百度地图地址选择效果/">模仿58到家百度地图地址选择效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/基于Bmob开源APP-兄弟连/">基于Bmob开源APP-兄弟连</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/25/一个基于MVP模式的应用基础框架/">一个基于MVP模式的应用基础框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/27/使用Octopress搭建静态博客网站/">使用Octopress搭建静态博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/26/AndroidUniversalImageLoader使用详解/">AndroidUniversalImageLoader使用详解</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">NateRobinson's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'naterobinson'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
